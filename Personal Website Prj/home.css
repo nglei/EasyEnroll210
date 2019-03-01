@@ -1,0 +1,235 @@
+body {
+    background-color: rgb(204, 204, 204)
+}
+
+.header {
+    margin-top: 0px;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header b {
+    color: rgb(255, 255, 255);
+    background-color: rgb(58, 54, 45);
+    padding: 4px 10px 4px 10px;
+    border-radius: 20px;
+}
+
+footer {
+    background-color: rgba(36, 36, 36, 0.76);
+    width: 100vw;
+    height: 10vh;
+    color: rgb(247, 247, 247);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-block-end: 0px;
+}
+
+
+/*content*/
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 40px;
+}
+
+.content01 {
+    display: flex;
+    flex-direction: row;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/*YaleU*/
+
+.yale {
+    box-shadow: 0px 10px 10px 1px rgba(139, 139, 139, 0.753);
+    background-color: rgb(253, 243, 243);
+    width: 70vh;
+    height: 64vh;
+    margin: 0px 35px;
+    padding: 0px;
+}
+
+.yale h2,
+.yale p {
+    margin: 0px 15px;
+}
+
+
+/*ANU*/
+
+.anu {
+    box-shadow: 0px 10px 10px 1px rgba(139, 139, 139, 0.753);
+    background-color: rgb(253, 243, 243);
+    width: 70vh;
+    height: 121vh;
+    margin: 0px 35px 40px 35px;
+    padding: 0px;
+}
+
+.anu h2,
+.anu p {
+    margin: 0px 15px;
+}
+
+.anu img{
+  border: 2px solid red;
+}
+.anu a {
+    text-decoration: none;
+    border: 1px solid rgb(204, 204, 204);
+    padding: 9px 11px;
+    margin-top: 15px;
+    margin-left: 15px;
+    color: black;
+    width: 10vh;
+}
+
+.anu a:hover {
+    box-shadow: 0px 5px 10px 5px rgba(139, 139, 139, 0.753);
+    transition: 0.4s;
+    border: 1px solid rgb(0, 0, 0);
+
+}
+.anu:hover{
+  border-bottom-color:rgb(1,255,9);
+}
+
+/*MONASH*/
+
+.monash {
+    box-shadow: 0px 10px 10px 1px rgba(139, 139, 139, 0.753);
+    background-color: rgb(253, 243, 243);
+    width: 70vh;
+    height: 79.5vh;
+    margin: 0px 35px;
+    padding: 0px;
+}
+
+.monash h2,
+.monash p {
+    margin: 0px 15px;
+}
+
+.monash ul {
+    list-style-type: none;
+    background: rgb(253, 243, 243);
+}
+
+.monash ul li {
+    border-top: 1px solid rgb(204, 204, 204);
+}
+
+.monash ul li a {
+    display: block;
+    color: #000000;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.monash ul li:hover {
+    background-color: #42454693;
+    transition: 0.35s;
+}
+
+
+/*UWA*/
+
+.western {
+    box-shadow: 0px 10px 10px 1px rgba(139, 139, 139, 0.753);
+    background-color: rgb(253, 243, 243);
+    width: 100vh;
+    height:148vh;
+    margin: 0px 35px;
+    padding: 0px;
+}
+
+.western img {
+    width: 100vh;
+    height: 100vh;
+}
+
+.western h2,
+.western p {
+    margin: 0px 15px;
+}
+
+.western a {
+    text-decoration: none;
+    border: 1px solid rgb(204, 204, 204);
+    padding: 9px 11px;
+    margin-top: 15px;
+    margin-left: 15px;
+    color: black;
+}
+
+.western a:hover {
+    box-shadow: 0px 5px 10px 5px rgba(139, 139, 139, 0.753);
+    transition: 0.4s;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+
+/*UniversityTokyo*/
+
+.tokyo {
+    box-shadow: 0px 10px 10px 1px rgba(139, 139, 139, 0.753);
+    background-color: rgb(253, 243, 243);
+    width: 100vh;
+    height: 120vh;
+    margin: 0px 35px 40px 35px;
+    padding: 0px;
+}
+
+.tokyo img {
+    width: 100vh;
+    height: 55vh;
+}
+
+.tokyo h2,
+.tokyo p {
+    margin: 0px 15px;
+}
+
+@media only screen and (max-width:1000px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 40px;
+    }
+    .western {
+        width: 70vh;
+        height: 82vh;
+        margin: 80px 35px 40px 35px;
+        padding: 0px;
+    }
+    .tokyo {
+        width: 70vh;
+        height: 130vh;
+    }
+    .tokyo img {
+        width: 40vh;
+        height: 37vh;
+    }
+    .western img {
+        width: 70vh;
+        height: 30vh;
+    }
+    .monash {
+        height: 75vh;
+    }
+}
