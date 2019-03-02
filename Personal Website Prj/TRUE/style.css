@@ -1,0 +1,24 @@
+#box{
+ width:500px;
+ height:480px;
+ 
+ background:red;
+ text-align:right;
+ }
+#box:hover{
+ position:absolute;
+ clip:rect(0,480px,500px,0);
+ animation: clipping 5s;
+}
+body{
+	background:
+		url(../2.jpg)
+		no-repeat
+    fixed
+		;
+		
+		
+}
+@keyframes clipping{
+50% {clip:rect(0,100px,200px,0);}
+}
