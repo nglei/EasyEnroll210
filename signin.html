@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     	<link rel="stylesheet" type="text/css" href="starter-template.css">
-      <link rel="stylesheet" type="text/css" href="floating-labels.css">
+      <link rel="stylesheet" type="text/css" href="signin.css">
     <title>Sign In</title>
     <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -12,7 +12,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
   </head>
-  <body>
+  <body style="background-image: url(bg-login.jpg)">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="#">EasyEnroll</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,26 +30,14 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Universities</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li><form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-          </form></li>
         </ul>
-
-
-
       </div>
     </nav>
 
     <main role="main" class="container">
+      <div class="login">
+
+
       <form class="form-signin">
         <div class="text-center mb-4">
           <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
@@ -66,12 +54,14 @@
           <label for="inputPassword">Password</label>
         </div>
 
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <div class="signup-p">
+          <p>Don't have an account? <a href="#">Sign up</a></p>
         </div>
       </form>
+      </div>
+
 
 
 
