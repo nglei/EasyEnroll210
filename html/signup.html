@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     	<link rel="stylesheet" type="text/css" href="../css/pages.css">
-      <link rel="stylesheet" type="text/css" href="../css/signin.css">
-    <title>Sign In</title>
+      <link rel="stylesheet" type="text/css" href="../css/signup.css">
+    <title>Sign Up</title>
     <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
@@ -35,18 +35,22 @@
     </nav>
 
     <main role="main" class="container">
-      <div class="login">
+      <div class="signup">
 
 
       <form class="form-signin">
         <div class="text-center mb-4">
-          <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
-          <!--p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p-->
+          <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
         </div>
 
-        <div class="form-label-group">
+        <!--div class="form-label-group">
           <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
           <label for="inputEmail">Email address</label>
+        </div-->
+
+        <div class="form-label-group">
+          <input type="text" id="inputUsername" class="form-control" placeholder="Username" required>
+          <label for="inputUsername">Username</label>
         </div>
 
         <div class="form-label-group">
@@ -54,11 +58,46 @@
           <label for="inputPassword">Password</label>
         </div>
 
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <div class="signup-p">
-          <p>Don't have an account? <a href="#">Sign up</a></p>
+        <div class="form-label-group">
+          <input type="text" id="inputName" class="form-control" placeholder="Full Name" required>
+          <label for="inputName">Full Name</label>
         </div>
+
+        <div class="form-label-group">
+          <input type="email" id="inputEmail" class="form-control" placeholder="Email Address" required>
+          <label for="inputEmail">Email Address</label>
+        </div>
+
+
+          <div class="form-label-group">
+            <select id="selectIDType" class="form-control">
+              <option value="" disabled="" selected="">ID Type</option>
+              <option value="ic">IC</option>
+              <option value="passport">Passport</option>
+              <option value="other">Other</option>
+            </select>
+
+
+          </div>
+
+          <div class="form-label-group">
+            <input type="text" id="inputIDNo" class="form-control" placeholder="IDNo" required>
+            <label for="inputIDNo">ID Number</label>
+          </div>
+
+
+        <div class="form-label-group">
+          <input type="text" id="inputMobile" class="form-control" placeholder="Mobile Number" required>
+          <label for="inputMobile">Mobile Number</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="date" id="inputDateOfBirth" class="form-control">
+          <label for="inputDateOfBirth">Date of Birth</label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+
       </form>
       </div>
 
