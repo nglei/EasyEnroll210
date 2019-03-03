@@ -4,7 +4,9 @@
     width: 40%;
     padding-right: 5px;}
 
-
+body{
+   background-image: url(../img/bg-login.jpg);
+}
       .signup{
           left: 50%;
           top: 50%;
@@ -20,7 +22,7 @@
           border-radius: 25px;
       }
 
-      .form-signin, .signup-p {
+      .form-signup, .signup-p {
         width: 100%;
         max-width: 360px;
         padding: 15px;
