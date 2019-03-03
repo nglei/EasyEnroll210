@@ -1,4 +1,6 @@
-
+body{
+   background-image: url(../img/bg-login.jpg);
+}
 .login{
     left: 50%;
     top: 50%;
