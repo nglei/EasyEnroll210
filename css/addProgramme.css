@@ -90,8 +90,9 @@
 }
 
 
-.login{
-    left: 50%;
+.addProgramme{
+  padding-top: 50px;
+  /*  left: 50%;
     top: 50%;
     position: absolute;
     -webkit-transform: translate3d(-50%, -50%, 0);
@@ -102,7 +103,7 @@
     max-width: 500px;
     padding: 50px;
     margin: auto;
-    border-radius: 25px;
+    border-radius: 25px;*/
 }
 
 .form-signin{
