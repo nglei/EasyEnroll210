@@ -6,9 +6,12 @@ var email = document.getElementById("inputEmail");
 var idNo = document.getElementById("inputIDNo");
 var mobileNo = document.getElementById("inputMobile");
 var idType = document.getElementById("selectIDType");
+var date = document.getElementById("inputDateOfBirth");
 
 
 function validation(){
+	var selectValue = idType[idType.selectedIndex].value;
+
 	validUser();
 	validPassword();
 	validConfirmPass();
@@ -16,7 +19,9 @@ function validation(){
 	validEmail();
 	validIDNo();
 	validMobileNo();
-	//validIDType();
+	validIDtype();
+	validDate();
+
 	if(validUser()){
 		if(validPassword()){
 			if(validConfirmPass()){
@@ -24,14 +29,15 @@ function validation(){
 					if(validEmail()){
 						if(validIDNo()){
 							if(validMobileNo()){
-								//if(validIDType()){
+								if(validIDtype()){
+									if(validDate()){
 								return true;
-	}}}}}}}
-	
+	}}}}}}}}}
+
 	return false;
-	
-	
-	
+
+
+
 	//validate username
 	function validUser(){
 	if(username.value == ""){
@@ -49,14 +55,14 @@ function validation(){
 	}}
 	//validate password
 	function validPassword(){
-		
+
 	if(inPassword.value == ""){
 		document.getElementById("errorPassword").innerHTML="Please enter a password";
         inPassword.style.borderColor="red";
 		return false;
 	}else if(inPassword.value.length < 8){
 		document.getElementById("errorPassword").innerHTML="Must have at least 8 characters";
-        username.style.borderColor="red";
+        inPassword.style.borderColor="red";
 		return false;
 	}
 	else{
@@ -70,7 +76,7 @@ function validation(){
 		return false;
 	}else if(confirmPass.value != inPassword.value){
 		document.getElementById("errorConfirmPass").innerHTML="Password not match";
-        username.style.borderColor="red";
+        confirmPass.style.borderColor="red";
 		return false;
 	}
 	else{
@@ -118,23 +124,33 @@ function validation(){
 		return true;
 	}}
 	//validate ID type
-	/*function validIDtype(){
-		if(id == "type"){
+	function validIDtype(){
+		if(selectValue == "type"){
 			document.getElementById("errorIDType").innerHTML="Invalid mobile number format";
 			idType.style.borderColor="red";
 			return false;
 		}
 		else{
 			return true;
+		}}
+		//validate date of birth
+		function validDate(){
+			if(date.value == ""){
+				document.getElementById("errorDate").innerHTML="Please fill up the date";
+				date.style.borderColor="red";
+				return false;
+			}
+			else{
+				return true;
+			}
 		}
-	}*/
 }
 
 username.onkeyup = function(){
 	if(username.value.length >= 5){
 		username.style.borderColor="white";
 		document.getElementById("errorUsername").innerHTML="";
-		
+
 	}
 	else if(username.value == ""){
 		document.getElementById("errorUsername").innerHTML="Please enter a username";
@@ -199,7 +215,7 @@ email.onkeyup = function(){
 idNo.onkeyup = function(){
 	if(idNo.value != ""){
 		document.getElementById("errorIDNo").innerHTML="";
-        idNo.style.borderColor="white";	
+        idNo.style.borderColor="white";
 	}
 	else if(idNo.value == ""){
 		document.getElementById("errorIDNo").innerHTML="Please enter your ID number";
@@ -221,4 +237,17 @@ mobileNo.onkeyup = function(){
 	}
 }
 
+idType.onchange = function(){
+	var selectValue = idType[idType.selectedIndex].value;
+	if(selectValue != "type"){
+		document.getElementById("errorIDType").innerHTML="";
+		idType.style.borderColor="white";
+	}
+}
 
+date.onchange = function(){
+	if(date.value!=""){
+		document.getElementById("errorDate").innerHTML="";
+		date.style.borderColor="white";
+	}
+}

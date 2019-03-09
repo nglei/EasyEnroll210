@@ -4,7 +4,7 @@
     <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="../css/topcover.css">
       <link rel="stylesheet" type="text/css" href="../css/form.css">
-    <title>Add Programme</title>
+    <title>Add Univeristy</title>
     <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
@@ -25,17 +25,17 @@
             <a class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addProgrammeList.html">Programme</a>
+            <a class="nav-link" href="addUniversityList.html">University</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Review Application</a>
+            <a class="nav-link" href="#">Qualification</a>
           </li>
 
         </ul>
         <ul class="dropdown nav navbar-nav navbar-right ml-auto">
           <li class="nav-item dropdown" >
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          UniAdmin's Name
+          SAS Admin's Name
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Logout</a>
@@ -45,8 +45,6 @@
 
       </div>
 
-
-
     </nav>
 
     <div class="top-cover top-overlay top-title">
@@ -54,13 +52,13 @@
            <div class="container">
                <div class="row">
                    <div class="col-md-12 text-center">
-                       <h1 class="page-title">Add Programme</h1>
+                       <h1 class="page-title">Add University</h1>
                        <ul>
                            <li>
                                <a class="active" href="index.html">Home</a>
                            </li>
-                           <li><a href="addProgrammeList.html">Programme</a></li>
-                           <li>Add Programme</li>
+                           <li><a href="addUniversityList.html">University</a></li>
+                           <li>Add University</li>
                        </ul>
                    </div>
                </div>
@@ -72,37 +70,45 @@
       <div class="content">
 
 
-      <form class="form-add-programme">
+      <form class="">
         <div class="mb-4">
-          <h1 class="h3 mb-3 font-weight-normal">New Programme</h1>
+          <h3 class="h3 mb-3 font-weight-normal">New University</h3>
         </div>
 
         <div class="form-label-group">
-          <input type="text" id="inputProgrammeName" class="form-control" placeholder="Programme Name" required autofocus>
-          <label for="inputProgrammeName">Programme Name</label>
+          <input type="text" id="inputUniversity" class="form-control" placeholder="University Name" required autofocus>
+          <label for="inputUniversity">University Name</label>
+        </div>
+
+        <div>
+          <h3 class="h3 mb-3 font-weight-normal">University Admin Account Details</h3>
         </div>
 
         <div class="form-label-group">
-          <input type="text" id="inputDuration" class="form-control" placeholder="Duration" required>
-          <label for="inputDuration">Duration</label>
+          <input type="text" id="inputUsername" class="form-control" placeholder="Username">
+          <span id="errorUsername"></span>
+          <label for="inputUsername">Username</label>
         </div>
 
         <div class="form-label-group">
-          <input type="text" id="inputIntake" class="form-control" placeholder="Intake" requried>
-          <label for="inputIntake">Intake</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" >
+          <span id="errorPassword"></span>
+          <label for="inputPassword">Password</label>
         </div>
 
         <div class="form-label-group">
-          <input type="text" id="inputFee" class="form-control" placeholder="Tuition Fee" requrierd>
-          <label for="inputFee">Tuition Fee</label>
+          <input type="text" id="inputName" class="form-control" placeholder="Full Name">
+          <span id="errorName"></span>
+          <label for="inputName">Full Name</label>
         </div>
 
         <div class="form-label-group">
-          <textarea id="inputDescription" class="form-control" name="name" rows="8" cols="80" placeholder="Programme Description"></textarea>
-
+          <input type="email" id="inputEmail" class="form-control" placeholder="Email Address">
+          <span id="errorEmail"></span>
+          <label for="inputEmail">Email Address</label>
         </div>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Add Programme</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Add University</button>
       </form>
       </div>
 

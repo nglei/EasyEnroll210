@@ -1,10 +1,21 @@
+<?php
+session_start();
+$_SESSION['servername'] = "localhost";
+$_SESSION['username'] = "root";
+$_SESSION['password'] = "";
+$conn = new mysqli($_SESSION['servername'], $_SESSION['username'],$_SESSION['password']);
+if ($conn->connect_error){
+  die("Connection failed: " . $conn->connect_error);
+}
+
+ ?>
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     	<link rel="stylesheet" type="text/css" href="../css/pages.css">
       <link rel="stylesheet" type="text/css" href="../css/signup.css">
-      <link rel="stylesheet" type="text/css" href="../css/form.css">
     <title>Sign Up</title>
     <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -40,7 +51,7 @@
 
 
 
-      <form action="addProgrammeList.html" class="formSignup test" onsubmit="return validation()">
+      <form class="formSignup test" onsubmit="return validation()" method="get">
         <div class="text-center mb-4">
           <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
         </div>
@@ -48,31 +59,31 @@
 
         <div class="form-label-group">
           <input type="text" id="inputUsername" class="form-control" placeholder="Username">
-          <span id="errorUsername"></span>
+          <span id="errorUsername" class="error"></span>
           <label for="inputUsername">Username</label>
         </div>
 
         <div class="form-label-group">
           <input type="password" id="inputPassword" class="form-control" placeholder="Password" >
-          <span id="errorPassword"></span>
+          <span id="errorPassword" class="error"></span>
           <label for="inputPassword">Password</label>
         </div>
 
         <div class="form-label-group">
           <input type="password" id="inputConfirmPass" class="form-control" placeholder="Confirm Password" >
-          <span id="errorConfirmPass"></span>
+          <span id="errorConfirmPass" class="error"></span>
           <label for="inputConfirmPass"> Confirm Password</label>
         </div>
 
         <div class="form-label-group">
           <input type="text" id="inputName" class="form-control" placeholder="Full Name">
-          <span id="errorName"></span>
+          <span id="errorName" class="error"></span>
           <label for="inputName">Full Name</label>
         </div>
 
         <div class="form-label-group">
           <input type="email" id="inputEmail" class="form-control" placeholder="Email Address">
-          <span id="errorEmail"></span>
+          <span id="errorEmail" class="error"></span>
           <label for="inputEmail">Email Address</label>
         </div>
 
@@ -84,27 +95,27 @@
               <option value="passport">Passport</option>
               <option value="other">Other</option>
             </select>
-            <span id="errorIDType"></span>
+            <span id="errorIDType" class="error"></span>
 
 
           </div>
 
           <div class="form-label-group">
             <input type="text" id="inputIDNo" class="form-control" placeholder="IDNo">
-            <span id="errorIDNo"></span>
+            <span id="errorIDNo" class="error"></span>
             <label for="inputIDNo">ID Number</label>
           </div>
 
 
         <div class="form-label-group">
           <input type="text" id="inputMobile" class="form-control" placeholder="Mobile Number">
-          <span id="errorMobileNo"></span>
+          <span id="errorMobileNo" class="error"></span>
           <label for="inputMobile">Mobile Number</label>
         </div>
 
         <div class="form-label-group">
           <input type="date" id="inputDateOfBirth" class="form-control">
-          <span id="errorDate"></span>
+          <span id="errorDate" class="error"></span>
           <label for="inputDateOfBirth">Date of Birth</label>
         </div>
 
@@ -118,6 +129,9 @@
 
 
     </main><!-- /.container -->
+    <?php
+      echo $_GET['username'];
+     ?>
 
     <script src="../js/signup.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
