@@ -1,0 +1,160 @@
+body{background-image: url(../img/title/demo-1-bg.jpg);} :root {
+  --mouse-x: 0;
+  --mouse-y: 0;
+}
+
+.sidepanel{
+  height:100%;
+  width: 0px;
+  position:fixed;
+  z-index:10;
+  top: 0px;
+  left: 0px;
+  overflow-x:hidden;
+  background-color:rgb(177, 95, 166);
+  transition: 0.35s;
+  padding-top:60px;
+}
+.sidepanel a{
+  font-size: 30px;
+  display:block;
+  text-decoration: none;
+  padding: 8px 8px 8px 32px;
+  color: rgb(255,255,255);
+  background-image:linear-gradient(to left, transparent, transparent 50%, rgb(51, 206, 31) 50%, rgb(17,55,254));
+  background-position:100% 0;
+  background-size:200% 100%;
+  transition: all .25s ease-in;
+}
+.sidepanel a:hover{
+  background-position: 0 0;
+  color:rgb(65, 62, 62);
+}
+.closemenu{
+  position:absolute;
+  top:0px;
+  
+  margin-left:50px;
+  right:4px;
+  color: rgb(255,255,255);
+}
+#main{
+  transition:margin-left .5s;
+  padding:20px;
+}
+.blackmenu{
+  position:relative;
+  display:inline-block;
+  animation: rotation 1s infinite linear;
+}
+.menuitem{
+  
+  animation-name:chgimg;
+  animation-iteration-count:infinite;
+  animation-timing-function:ease-in-out;
+  animation-duration:1s;
+  animation-direction:alternate;
+}
+
+
+
+.menuitem img{
+  position:absolute;
+  left:0px;
+  animation: rotation 1s infinite linear;
+}
+@keyframes chgimg{
+  0%{
+    opacity:1.0;
+  }
+  25%{
+    opacity:1;
+  }
+  
+  75%{
+    opacity:0;
+  }
+  100%{
+    opacity:0;
+  }
+
+}
+@keyframes rotation{
+  from{
+    transform:rotate(0deg);
+    transform-origin: center;
+  }
+  to{
+    transform: rotate(359deg);
+    transform-origin: center;
+  }
+}
+.content{
+  display:flex;
+  flex-direction:column;
+  margin:0px 40px;
+  justify-content:center;
+  align-items: center;
+  color:rgb(255,254,254);
+}
+.Yale{
+  box-shadow: 0px 10px 10px 1px rgb(76, 77, 75);
+  border-radius:5px;
+  padding:20px;
+  height:87vh;
+  width:71vh;
+  background-color:rgba(255,254,243,0.37);
+
+
+}
+.Yale img{
+  height:47vh;
+  width:48vh;
+  padding:0 12vh;
+}
+.Yale p{
+  height:27vh;
+  width: 69vh;
+  display:inline-block;
+
+}
+.Anu{
+  margin-top:33vh;
+background-color: rgba(255,254,243,0.37);
+box-shadow: 0px 10px 10px 1px rgb(76,77,75);
+border-radius:5px;
+padding:20px;
+height:75vh;
+width:71vh;
+}
+.Anu img{
+  height:25vh;
+  width:69vh;
+}
+.Anu p{
+  height:23vh;
+  width:69vh;
+  display:block;
+  overflow:hidden;
+  border: dashed 1px red;
+}
+
+.west{
+  margin-top:33vh;
+background-color: rgba(255,254,243,0.37);
+box-shadow: 0px 10px 10px 1px rgb(76,77,75);
+border-radius:5px;
+padding:20px;
+height:125vh;
+width:71vh;
+}
+.west img{
+  height:55vh;
+  width:69vh;
+  border:inset 5px rgb(255,255,255);
+}
+.west p{
+  height: 17vh;
+  width: 69vh;
+  display:inline-block;
+}

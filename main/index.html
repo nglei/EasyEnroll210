@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>桌面</title>
+    <style>
+    html, body{
+      margin:0;
+      padding:0;
+      width:100%;
+      height:100%;
+    }
+    </style>
+    <!--
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">-->
+    <link rel="stylesheet" type="text/css" href="css/circleMenu.css">
+    <link rel="stylesheet" type="text/css" href="css/3.css">
+    <link rel="stylesheet" type="text/css" href="css/aos.css">
+    <script src="js/main.js"></script>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/circularmenuII.js"></script>
+    <script type="text/javascript">
+    //initiate right-click menu
+    $(document).ready(function(){
+      $('body').circleMenu({
+        'menu':'GalDropDown'
+      })
+    });</script>
+  
+    <link rel="stylesheet" type="text/css" href="css/demo.css">
+    <!--必要样式
+    <link rel="stylesheet" type="text/css" href="css/component.css">
+  
+    [if IE]
+    <script src="js/html5.js"></script>[endif]-->
+    
+
+  </head>
+  <body>
+    <div class="circleMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          <a href="" class="menuItem" title="Home">Home</a>
+          <a href="" class="menuItem" >Class</a>
+          <a href="" class="menuItem" >Programme</a>
+          <a href="" class="menuItem">Universities</a>
+          <a href="" class="menuItem">Sign Up</a>
+          <a href="" class="menuItem">Qualification</a>
+        </div>
+      </div>
+    </div>
+    <div id="overlay"style ="opacity:1; cursor:pointer;"></div>
+    <script type="text/javascript">
+    /**arrange right-click menu in circular form**/
+    var items=document.querySelectorAll('.menuItem')//get the menu items
+      for (var i=0; i<items.length; i++){
+        items[i].style.left=(50-35*Math.cos(-0.5*Math.PI-2*(1/items.length)*i*Math.PI)).toFixed(4)+"%";
+        items[i].style.top=(50+35*Math.sin(-0.5*Math.PI-2*(1/items.length)*i*Math.PI))+"%"
+      }
+      </script>
+    <script src="js/aos.js"></script>
+      <div id="clickonmenu" class="sidepanel" >
+        <span href="javascript:void(0)" class="closemenu" onclick="closemenu()">&#9957;</span>
+        <a href="">Main</a>
+        <a href="">Home</a>
+        <a href="">University</a>
+        <a href="">Programme</a>
+        <a href="">Apply</a>
+        <a href="">Enquiry</a>
+      </div>
+      
+      
+      <div class="blackmenu">
+        <img src="img/menu_circular_icon_png.png" alt="menu-icon" height="100vh" width="100vw"onclick="sidemenuout()">
+        <span class="menuitem">
+        <img src="img/menu_circular_iconwhite.png"alt="white-sa" height="100vh" width="100vw" onclick="sidemenuout()">
+        </span>
+      </div>
+      <div id="main">
+        <div class="content">
+          <script type="text/javascript">
+          /**block "flip up" duration**/
+          AOS.init({
+            duration: 600,
+            });</script>
+          <div class="Yale" data-aos="flip-up">
+            <a href="">
+            <div class="Yalecontainer">
+            <img src="img/Yale/975pxYaleUniversityShield1.png" alt="Yale school">
+            <br>
+            
+            <h2>Yale University</h2>
+            <br>
+            <p class="Yaledescrip">Yale’s tree-lined campus in New Haven Connecticut has housed “a company of scholars and a society of friends” for over 250 years.Enjoy a (digital) stroll through what one architecture critic has called “the most beautiful urban campus in America.”</p>
+            </div>
+            <p class="YaleRdM">Read more..</p>
+            </a>
+          </div>
+
+          <div data-aos="flip-up">
+            <a class ="Anu" href="../../PersonalWebsitePrj/ljspw.github.io-master/index.html">
+            <div class="Anu-container">
+            <img src="img/ANU/croppedANULogo.png" alt="Australian National University" >
+            <br>
+            
+            <h2> Australian National University</h2>
+            <br>
+            
+            <p>Our Acton campus is in the heart of Canberra - Australia's capital city - in the Australian Capital Territory (ACT).
+                
+                Amongst our modern lecture halls, libraries, laboratories, student residences and administration buildings, you'll find all the conveniences of a small suburb including cafes, bars, supermarkets, child care centres, a newsagency, post office and even a medical centre.
+                
+                The Acton Campus is well renowned for its landscape setting, with many remnant and planted trees and an obvious commitment to maintenance of open space. ANU maintains over 10,000 trees, including over 500 considered to be of exceptional significance because of their age, history or species and over 300 remnant trees predating European occupation of the area.
+                
+                There are eight buildings or complexes of buildings currently listed on the Commonwealth Heritage List (CHL) and following the ANU Heritage Study (2012) over 60 more buildings/complexes have been identified as meeting the threshold for listing on the Commonwealth Heritage List.</p>
+            </div>
+            
+            <p class="AnuRdM"href="TRUE.html">Read more...</p>
+          </a>
+          </div>
+
+          <div class="west" data-aos="flip-up">
+            <a href="">
+              <div class="west-container">
+            <img src="img/western/UWA2Modern.jpg" alt="University Western Australia">
+            <br>
+            <br>
+            <h2>The University of Western Australia</h2>
+            <br>
+            <br>
+            <p>From its extensive art collections and theatre venues to its wealth of sporting, cultural, alumni and social groups, the University is a leading intellectual and creative resource to the communities it serves.
+
+                The University's affiliated residential colleges lie north of the campus. You can explore the campus through the UWA Virtual Universe or the campus map.
+                
+                UWA’s distinctive mix of heritage architecture and contemporary buildings contain state-of-the-art teaching
+               and research facilities, lecture and performance
+                theatres, tutorial spaces, studios and subject-specific
+                 laboratories, creating the perfect learning
+                  environment.</p><br>
+                </div>
+                  <p class="westRdM">Read more...</p>
+            </a>
+          </div>
+
+          
+        
+     
+            <canvas id="demo-canvas"></canvas> 
+        
+      </div>
+      <!-- /container -->
+      <script src="js/TweenLite.min.js"></script>
+      <script src="js/EasePack.min.js"></script>
+      <script src="js/rAF.js"></script>
+      <script src="js/demo-1.js"></script>
+      <script src="js/Rx.min.js"></script>
+      <script src="js/rxcss.min.js"></script>
+      <script src="js/index.js"></script>
+    
+   </div>
+  </body>
+</html> <!--
+
+      
+      <div class="container demo-1">
+        <div class="content">
+          <div id="large-header" class="large-header">
+            <div style="position:absolute;left: 540px; top:300px;" class="time" id="time"
+
+              data-hours="" data-minutes="">
+              <div class="digit">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+              <div class="digit">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+              <div class="digit">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+              <div class="digit">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+              <div class="digit">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+              <div class="digit">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+            </div>
+          -->
