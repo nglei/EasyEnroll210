@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="../css/list.css  ">
+      <link rel="stylesheet" type="text/css" href="../css/topcover.css">
+      <link rel="stylesheet" type="text/css" href="../css/applyProgramme.css">
+    <title>Review Application</title>
+    <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">EasyEnroll</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="addProgrammeList.html">Programme</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Review Application</a>
+          </li>
+
+        </ul>
+        <ul class="dropdown nav navbar-nav navbar-right ml-auto">
+          <li class="nav-item dropdown" >
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UniAdmin's Name
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Logout</a>
+        </div>
+        </li>
+        </ul>
+
+      </div>
+
+
+
+    </nav>
+
+    <div class="top-cover top-overlay top-title">
+      <div class="top-inner">
+           <div class="container">
+               <div class="row">
+                   <div class="col-md-12 text-center">
+                       <h1 class="page-title">Review Application</h1>
+                       <ul>
+                           <li>
+                               <a class="active" href="index.html">Home</a>
+                           </li>
+                           <li>Review Application</li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+
+    <!--main role="main" class="container"-->
+    <div class="container">
+
+<div class="row">
+      <div class="main col-lg">
+        <h1>All Application</h1>
+      </div>
+</div>
+      <div class="main col-lg">
+        <table id= "application" class="table">
+
+
+        </table>
+      </div>
+
+
+</div>
+<script>
+
+var table = document.getElementById("application");
+var row = table.insertRow(0);
+var cell1 = row.insertCell(0);
+var cell2 = row.insertCell(1);
+var cell3 = row.insertCell(2);
+var cell4 = row.insertCell(3);
+cell1.innerHTML ="<span id='tableHead'>Programme List</span>";
+cell2.innerHTML ="<span id='tableHead'>Closing Date</span>";
+cell3.innerHTML ="<span id='tableHead'>Number Of Application</span>";
+for(i = 1 ; i < 7;i++){
+  var row = table.insertRow(i);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  cell1.innerHTML = "Programme " + i;
+  cell2.innerHTML = "Date " + i;
+  cell3.innerHTML = 20 + i;
+  cell4.innerHTML ="<button class='btn btn-md btn-primary'>View</button>";
+}
+
+</script>
+
+
+
+    <!--/main>< /.container -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
