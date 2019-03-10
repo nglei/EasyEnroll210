@@ -78,21 +78,59 @@
 
       <div class="container">
         <div class="addQualification">
-          <div class="col">
+          <div class="">
               <h1>Qualification</h1>
           </div>
           <div class="col">
-
-              <table id= "qualification">
+              <table id= "qualification" class="table">
+                <tr>
+                  <td id="button"><button class="btn btn-sm btn-primary " onclick="addSubject()">Add Subject</button></td>
+                </tr>
 
               </table>
+              <div class="text-center" id="addButton">
+              <button class="btn btn-lg btn-primary" type="submit" onclick="showResult()">Add Qualification</button>
+              </div>
           </div>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Add Qualification</button>
+          <hr>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Apply Programme</button>
         </div>
 
 
         </div>
+<script>
+  var count = 1;
+  var table = document.getElementById("qualification");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  cell1.innerHTML ="<span id='tableHead'>Subject</span>";
+  cell2.innerHTML ="<span id='tableHead'>Grade</span>";
 
+  function showResult(){
+    var button =document.getElementById("button");
+    var button1 =document.getElementById("addButton");
+    button.innerHTML = "";
+    button1.innerHTML ="";
+    for(i = 1 ; i < 7;i++){
+      var row = table.insertRow(i);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      cell1.innerHTML = "Subject" + i;
+      cell2.innerHTML = "Grade" + i;
+    }
+  }
+
+  function addSubject(){
+    var row = table.insertRow(count);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = "<input type='text' id='subject' class='form-control' placeholder='Subject'>";
+    cell2.innerHTML = "<input type='text' id='subject' class='form-control' placeholder='Subject'>";
+    count++;
+  }
+
+</script>
 
 
     <!--/main>< /.container -->
