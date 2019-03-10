@@ -191,7 +191,46 @@ width:71vh;
   width: 69vh;
   display:inline-block;
 }
+@media screen and (max-width: 360px){
+  .blackmenu img{
+    height:8vh;
+    width:11vw;
+  }
+  .menuitem img{
+    height:8vh;
+    width:11vw;
+  }
+  .content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    margin:0px 40px;
+  }
+  div.Yale, a.Anu, .west{
+    height:57vh;
+    width:41vh;
+  }
+  div.Yale div.Yalecontainer,a.Anu div.Anu-container, .west .west-container{height:45vh;width:38vh;
 
+  }
+  div.Yale div.Yalecontainer img{
+    height:38vh;
+    width:36vh;
+    padding:0 3px;
+  } 
+  a.Anu div.Anu-container img{
+    height:17vh;
+    width:36vh;
+  }
+  a.Anu div.Anu-container p{
+    height:45vh;
+    width:38vh;
+  }
+  .west .west-container img{
+    height:23vh;
+    width:36vh;
+  }
 /**
 .time {
   display: -webkit-box;
