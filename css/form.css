@@ -3,8 +3,9 @@
   padding-bottom: 50px;
 }
 
-.form-group {
-  display: flex; }
+/*.form-group {
+  display: flex; }*/
+
   .form-group .form-dropdown {
     width: 40%;
     padding-right: 5px;}
