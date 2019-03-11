@@ -37,13 +37,15 @@ footer {
     display: flex;
     flex-direction: column;
     margin: 0px 40px;
+    align-items: center;
+    justify-content:center;
 }
-
+/*
 .content01 {
     display: flex;
     flex-direction: row;
 }
-
+*/
 p {
     font-size: 14px;
     line-height: 1.5;
@@ -122,37 +124,18 @@ p {
     margin: 0px 15px;
 }
 
-.monash ul {
-    list-style-type: none;
-    background: rgb(253, 243, 243);
-}
 
-.monash ul li {
-    border-top: 1px solid rgb(204, 204, 204);
-}
-
-.monash ul li a {
-    display: block;
-    color: #000000;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.monash ul li:hover {
-    background-color: #42454693;
-    transition: 0.35s;
-}
 
 
 /*UWA*/
 
 .western {
+    
     box-shadow: 0px 10px 10px 1px rgba(139, 139, 139, 0.753);
     background-color: rgb(253, 243, 243);
     width: 100vh;
     height:148vh;
-    margin: 0px 35px;
+    margin: 33px  35px;
     padding: 0px;
 }
 

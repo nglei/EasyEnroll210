@@ -84,6 +84,7 @@
 	-webkit-text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;
 	-moz-text-shadow:#DC965A 1px 0 0,#DC965A 0 1px 0,#DC965A -1px 0 0,#DC965A 0 -1px 0;
 	*filter:Glow(color=#DC965A,strength=1);
+	text-decoration:none;
 }
 .ring a:hover {
 	text-shadow:#66CCFF 1px 0 0,#66CCFF 0 1px 0,#66CCFF -1px 0 0,#66CCFF 0 -1px 0;
@@ -107,7 +108,7 @@
 	background-image:url("../../img/contextmenu/5.jpg");
 }
 .ring a:nth-oftype(6){
-	background-image:url("../../img/contextmenu/6.jpg");
+	background-image:url("../img/contextmenu/6.jpg");
 }
 #overlay {
 	height:100%;
