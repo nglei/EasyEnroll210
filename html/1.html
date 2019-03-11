@@ -2,9 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <link rel="stylesheet" type="text/css" href="../css/topcover.css">
       <link rel="stylesheet" type="text/css" href="../css/form.css">
-    <title>Add Programme</title>
+      <link rel="stylesheet" type="text/css" href="../css/list.css">
+      <link rel="stylesheet" type="text/css" href="../css/topcover.css">
+      <link rel="stylesheet" type="text/css" href="../css/programmeList.css">
+      <link rel="stylesheet" type="text/css" href="../css/coursedetail.css">
+    <title>Qualification detail</title>
     <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
@@ -14,7 +17,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="../main/home.html">EasyEnroll</a>
+      <a class="navbar-brand" href="#">EasyEnroll</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,23 +25,23 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">Home</a>
+            <a class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addProgrammeList.html">Programme</a>
+            <a class="nav-link" href="programmeList.html">Programme</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="reviewApplication.html">Review Application</a>
+            <a class="nav-link" href="universityList.html">University</a>
           </li>
 
         </ul>
         <ul class="dropdown nav navbar-nav navbar-right ml-auto">
           <li class="nav-item dropdown" >
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          UniAdmin's Name
+          Applicant's Name
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="../main/index.html">Logout</a>
+          <a class="dropdown-item" href="#">Logout</a>
         </div>
         </li>
         </ul>
@@ -54,13 +57,12 @@
            <div class="container">
                <div class="row">
                    <div class="col-md-12 text-center">
-                       <h1 class="page-title">Add Programme</h1>
+                       <h1 class="page-title">University</h1>
                        <ul>
                            <li>
                                <a class="active" href="index.html">Home</a>
                            </li>
-                           <li><a href="addProgrammeList.html">Programme</a></li>
-                           <li>Add Programme</li>
+                           <li>Qualification</li>
                        </ul>
                    </div>
                </div>
@@ -68,53 +70,63 @@
        </div>
     </div>
 
-    <main role="main" class="container">
-      <div class="content">
+    <!--main role="main" class="container">
 
+    <div class="container">
 
-      <form class="form-add-programme" action="addProgrammeList.html"onsubmit = "return validation()" method="post">
-        <div class="mb-4">
-          <h1 class="h3 mb-3 font-weight-normal">New Programme</h1>
-        </div>
-
-        <div class="form-label-group">
-          <input type="text" id="progName" class="form-control" placeholder="Programme Name" autofocus>
-          <span id="errorProg" class="error"></span>
-          <label for="progName">Programme Name</label>
-        </div>
-
-        <div class="form-label-group">
-          <input type="text" id="inputDuration" class="form-control" placeholder="Duration" >
-          <span id="errorDuration" class="error"></span>
-          <label for="inputDuration">Duration</label>
-        </div>
-
-        <div class="form-label-group">
-          <input type="text" id="inputIntake" class="form-control" placeholder="Intake">
-          <span id="errorIntake" class="error"></span>
-          <label for="inputIntake">Intake</label>
-        </div>
-
-        <div class="form-label-group">
-          <input type="text" id="inputFee" class="form-control" placeholder="Tuition Fee" >
-          <span id="errorFee" class="error"></span>
-          <label for="inputFee">Tuition Fee</label>
-        </div>
-
-        <div class="form-label-group">
-          <textarea id="inputDescription" class="form-control" name="name" rows="8" cols="80" placeholder="Programme Description"></textarea>
-          <span id="errorDescription" class="error"></span>
-        </div>
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Add Programme</button>
-      </form>
+      <div class="row">
+            <div class="main col-lg-10">
+              <h1>University List</h1>
+            </div>
+            <div class="main col-lg-2">
+              <a href="addUniversity.html">
+              <button type="button" class="btn btn-primary" name="addProgrammeBtn">Add University</button></a>
+            </div>
       </div>
+            <div class="main col-lg-10">
+              <ul class="list-group list-group-flush" id="universityList">
+              </ul>
+            </div>
+      </div>
+      <script>
+        var universityList = document.getElementById("universityList");
+        for ( var i = 0 ;i < 8 ;i++){
+          var a = document.createElement("a");
+          a.setAttribute("href","#");
+          a.setAttribute("class",'list-group-item list-group-item-action');
+          a.innerHTML = "University " + (i+1);
+          universityList.appendChild(a);
+          }
+      </script>-->
+      <div class="container">
+        <div class="main col-lg-10">
+            <h1>STPM</h1>
+          </div>
+          <div class="row">
+              <div class="main col-lg-10">
+                <div class="coursedetail">
+                  <p>Qualification:</p>
+                  <p>Qualification:</p>
+                  <p>Qualification:</p>
+                  <p>Qualification:</p>
+                  <p>Document Required:</p>
+                </div>
+                </div>
+          <div class="main col-lg-2">
+            <a href="addUniversity.html">
+            <button type="button" class="btn btn-primary" name="addProgrammeBtn">Edit Qualification</button></a>
+          </div>
+    </div>
+
+          </div>
+
+          <hr>
+
+        </div>
 
 
 
-
-    </main><!-- /.container -->
-    <script src="../js/addProgramme.js"></script>
+    <!--/main>< /.container -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
