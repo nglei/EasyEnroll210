@@ -5,7 +5,6 @@
       <link rel="stylesheet" type="text/css" href="../css/list.css  ">
       <link rel="stylesheet" type="text/css" href="../css/topcover.css">
       <link rel="stylesheet" type="text/css" href="../css/applyProgramme.css">
-      <link rel="stylesheet" type="text/css" href="../css/review.css">
     <title>Review Application</title>
     <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -61,13 +60,7 @@
                            <li>
                                <a class="active" href="index.html">Home</a>
                            </li>
-                           <li>
-                               <a class="active" href="index.html">Review Application</a>
-                           </li>
-                           <li>
-                               <a class="active" href="index.html">Application List</a>
-                           </li>
-                           <li>Application</li>
+                           <li>Review Application</li>
                        </ul>
                    </div>
                </div>
@@ -78,48 +71,42 @@
     <!--main role="main" class="container"-->
     <div class="container">
 
-      <div class="content">
-        <div class="box">
-          <h3>Applicant Details</h3>
-          <div class="applicant">
-            <p><span class="bold">Name: </span>Ahmad</p>
-            <p><span class="bold">Email: </span>ahmad@gmail.com</p>
-            <p><span class="bold">Mobile Number: </span>012-3457895</p>
-          </div>
-        </div>
-          <div class="box">
-            <h3>Applicant Result</h3>
-            <div class="col">
-                <table id= "qualification" class="table"></table>
-            </div>
-            <div class="text-center button" id="addButton">
-                  <button class="btn btn-lg btn-primary" >Accept</button>
-                  <button class="btn btn-lg btn-primary" >Reject</button>
-            </div>
-          </div>
+<div class="row">
+      <div class="main col-lg">
+        <h1>All Application</h1>
+      </div>
+</div>
+      <div class="main col-lg">
+        <table id= "application" class="table">
 
+
+        </table>
       </div>
 
 
 </div>
 <script>
 
-var table = document.getElementById("qualification");
+var table = document.getElementById("application");
 var row = table.insertRow(0);
 var cell1 = row.insertCell(0);
 var cell2 = row.insertCell(1);
-cell1.innerHTML ="<span id='tableHead'>Subject</span>";
-cell2.innerHTML ="<span id='tableHead'>Grade</span>";
-  for(i = 1 ; i < 7;i++){
-    var row = table.insertRow(i);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    cell1.innerHTML = "Subject" + i;
-    cell2.innerHTML = "Grade" + i;
-  }
-
-
-
+var cell3 = row.insertCell(2);
+var cell4 = row.insertCell(3);
+cell1.innerHTML ="<span id='tableHead'>Programme List</span>";
+cell2.innerHTML ="<span id='tableHead'>Closing Date</span>";
+cell3.innerHTML ="<span id='tableHead'>Number Of Application</span>";
+for(i = 1 ; i < 7;i++){
+  var row = table.insertRow(i);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  cell1.innerHTML = "Programme " + i;
+  cell2.innerHTML = "Date " + i;
+  cell3.innerHTML = 20 + i;
+  cell4.innerHTML ="<button class='btn btn-md btn-primary'>View</button>";
+}
 
 </script>
 

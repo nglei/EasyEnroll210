@@ -1,0 +1,19 @@
+.bold{
+  font-weight: bold;
+}
+.content{
+  background-color: rgb(211,211,211);
+  padding: 10px;
+}
+.box{
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: auto;
+}
+.applicant{
+  background-color: white;
+  padding: 10px;
+}
+.button{
+  padding: 10px;
+}
