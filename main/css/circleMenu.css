@@ -93,22 +93,25 @@
 	*filter:Glow(color=#66CCFF,strength=1);
 }
 .ring a:nth-of-type(1){
-	background-image:url("../../img/contextmenu/1.jpg");
+	background-image:url("../img/contextmenu/1.jpg");
 }
 .ring a:nth-of-type(2){
-	background-image:url("../../img/contextmenu/2.jpg");
+	background-image:url("../img/contextmenu/2.jpg");
 }
 .ring a:nth-of-type(3){
-	background-image:url("../../img/contextmenu/3.jpg");
+	background-image:url("../img/contextmenu/3.jpg");
 }
 .ring a:nth-of-type(4){
-	background-image:url("../../img/contextmenu/4.jpg");
+	background-image:url("../img/contextmenu/4.jpg");
 }
 .ring a:nth-of-type(5){
-	background-image:url("../../img/contextmenu/5.jpg");
+	background-image:url("../img/contextmenu/5.jpg");
 }
-.ring a:nth-oftype(6){
+.ring a:nth-of-type(6){
 	background-image:url("../img/contextmenu/6.jpg");
+}
+.ring a:nth-of-type(7){
+	background-image:url("../img/contextmenu/7.jpg");
 }
 #overlay {
 	height:100%;
