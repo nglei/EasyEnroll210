@@ -40,6 +40,12 @@ footer {
     align-items: center;
     justify-content:center;
 }
+/*to be linkable blocks*/
+.content a{
+    display:block;
+    text-decoration:none;
+    color:rgb(0, 0, 0);
+}
 /*
 .content01 {
     display: flex;
@@ -59,47 +65,69 @@ p {
     background-color: rgb(253, 243, 243);
     width: 70vh;
     height: 64vh;
-    margin: 0px 35px 40px 35px;;
+    margin: 0px 35px 80px 35px;;
     padding: 0px;
 }
 
-.yale h2,
-.yale p {
-    margin: 0px 15px;
+.yale h2{
+    margin: 0 15px;
+}
+.yale .Yalecontent {
+    overflow:hidden;
+    height: 8vh;
+    margin: 8px 15px;
+}
+.yale img{
+    width: 70vh;height: 39vh;
+}
+.yale .YaleReadMe {
+    border: 1px white solid;
+    margin: 9px 15px;
+width:25vh;
+
+}
+.yale .YaleReadMe:hover{
+    border-color:black;
+    transition:.78s;
+    -moz-transition: .78s;
+box-shadow: 0 0 7px 5px rgb(157,155,156);
+}
+.yale .YaleReadMe p:hover{
+    font-size:24px;
+    transition:.78s;
 }
 
 
 /*ANU*/
 
 .anu {
+    border-width:2px;
 
     box-shadow: 0px 10px 10px 1px rgba(139, 139, 139, 0.753);
     background-color: rgb(253, 243, 243);
     width: 70vh;
-    height: 121vh;
+    height:98vh;
     margin: 30px 35px;
     padding: 0px;
 }
-
+.anu img{
+    width:70vh;height : 54vh;
+}
 .anu h2,
 .anu p {
     margin: 0px 15px;
 }
-
-.anu img{
-  border: 2px solid red;
-}
-.anu a {
+.anu .anuReadMore{
     text-decoration: none;
     border: 1px solid rgb(204, 204, 204);
     padding: 9px 11px;
     margin-top: 15px;
     margin-left: 15px;
     color: black;
-    width: 10vh;
+    width: 19vh;
 }
 
-.anu a:hover {
+.anu .anuReadMore:hover {
     box-shadow: 0px 5px 10px 5px rgba(139, 139, 139, 0.753);
     transition: 0.4s;
     border: 1px solid rgb(0, 0, 0);
@@ -107,6 +135,10 @@ p {
 }
 .anu:hover{
   border-bottom-color:rgb(1,255,9);
+  transition:.68s;
+  -moz-transition:.68s;
+  transform: scale(1.12);
+  -moz-transform:scale(1.12);
 }
 
 /*MONASH*/
@@ -116,13 +148,31 @@ p {
     background-color: rgb(253, 243, 243);
     width: 70vh;
     height: 79.5vh;
-    margin: 0px 35px;
+    margin: 70px 35px;
     padding: 0px;
 }
-
+.monash img{
+    width: 70vh;height:45vh;
+}
+.monash .monashRdM {
+    border: 1px solid rgb(255,255,243);
+    padding: 9px 11px;
+    margin-top: 15px;
+    margin-left: 15px;
+    color: rgb(9,2, 203);
+    width: 39vh;
+}
 .monash h2,
 .monash p {
     margin: 0px 15px;
+}
+.monash .monashRdM:hover{
+    box-shadow: 0px 3px 8px 7px rgb(138, 137, 131);
+    transition:.68s;
+    border-color: rgb(9,255,174);
+    transform: scale(1.01);
+    -moz-transform: scale(1.01);
+    -webkit-transform:scale(1.01);
 }
 
 
@@ -136,7 +186,7 @@ p {
     background-color: rgb(253, 243, 243);
     width: 100vh;
     height:148vh;
-    margin: 33px  35px;
+    margin: 40px  35px;
     padding: 0px;
 }
 
@@ -150,16 +200,17 @@ p {
     margin: 0px 15px;
 }
 
-.western a {
+.western .westernRdM {
     text-decoration: none;
     border: 1px solid rgb(204, 204, 204);
     padding: 9px 11px;
     margin-top: 15px;
     margin-left: 15px;
     color: black;
+    width: 19vh;
 }
 
-.western a:hover {
+.western .westernRdM:hover {
     box-shadow: 0px 5px 10px 5px rgba(139, 139, 139, 0.753);
     transition: 0.4s;
     border: 1px solid rgb(0, 0, 0);
@@ -172,8 +223,8 @@ p {
     box-shadow: 0px 10px 10px 1px rgba(139, 139, 139, 0.753);
     background-color: rgb(253, 243, 243);
     width: 100vh;
-    height: 120vh;
-    margin: 0px 35px 40px 35px;
+    height: 112vh;
+    margin: 70px 35px 20px 35px;
     padding: 0px;
 }
 
@@ -197,7 +248,7 @@ p {
     }
     .western {
         width: 70vh;
-        height: 82vh;
+        height: 121vh;
         margin: 80px 35px 40px 35px;
         padding: 0px;
     }
@@ -206,14 +257,122 @@ p {
         height: 130vh;
     }
     .tokyo img {
-        width: 40vh;
+        width: 70vh;
         height: 37vh;
     }
     .western img {
         width: 70vh;
-        height: 30vh;
+        height: 70vh;
     }
     .monash {
-        height: 75vh;
+        height: 77vh;
+    }
+    .anu{
+        height:77vh;
+    }
+    .anu .Anu-wrapup{
+        height:4vh;
+        width:68vh;
+        overflow:hidden;
+    }
+    .western .westernRdM{
+        margin-top:3px;
+        margin-left:3px;
+        padding:2px 3px;
+        width:34vh;
+    }
+    .western .western-contain{
+        height:23vh;
+        width:70vh;
+        overflow:hidden;
+    }
+    .tokyo .tokyo-content{
+        height:34vh;
+        width: 70vh;
+        overflow:hidden;
+    }
+    
+    .yale .YaleReadMe p:hover{
+        font-size:14px;
+    }
+    .anu .AnuReadMore{
+        margin-top:3px;
+        margin-left:3px;
+        padding:2px 3px;
+        width:34vh;
+    }
+    .yale{
+        height: 71vh;
+    }
+}
+@media only screen and (max-width:400px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 40px;
+    }
+    .yale{
+        width:41vh;
+        height:47vh;
+    }
+    .anu, .monash{
+        width:41vh;
+        height:53vh;
+    }
+    .western ,.tokyo{
+        width: 41vh;
+        height: 71vh;
+        margin: 80px 35px 40px 35px;
+        padding: 0px;
+    }
+    .tokyo img,.monash img,.yale img {
+        width: 41vh;
+        height: 21vh;
+    }
+    .anu img{
+        width:41vh;
+        height:29vh;
+    }
+    .western img {
+        width: 41vh;
+        height: 37vh;
+    }
+    .anu .Anu-wrapup{
+        height:4vh;
+        width:41vh;
+        overflow:hidden;
+    }
+    .western .westernRdM{
+        margin-top:3px;
+        margin-left:3px;
+        padding:2px 3px;
+        width:34vh;
+    }
+    .western .western-contain{
+        height:4vh;
+        width:41vh;
+        overflow:hidden;
+    }
+    .monash .monashRdM{
+        margin-top:3px;
+        margin-left:3px;
+        padding:2px 3px;
+    }
+    .tokyo .tokyo-content{
+        height:34vh;
+        width: 41vh;
+        overflow:hidden;
+    }
+    
+    .yale .YaleReadMe p:hover{
+        font-size:14px;
+    }
+    .anu .AnuReadMore{
+        margin-top:3px;
+        margin-left:3px;
+        padding:2px 3px;
+        width:34vh;
     }
 }

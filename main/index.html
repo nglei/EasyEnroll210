@@ -28,17 +28,13 @@
         'menu':'GalDropDown'
       })
     });</script>
-  
-    <link rel="stylesheet" type="text/css" href="css/demo.css">
-    <!--必要样式
-    <link rel="stylesheet" type="text/css" href="css/component.css">
-  
-    [if IE]
-    <script src="js/html5.js"></script>[endif]-->
+  <!--
+    <link rel="stylesheet" type="text/css" href="css/demo.css"> -->
     
 
   </head>
   <body>
+    <!--right Click circular menu-->
     <div class="circleMenu GalDropDown">
       <div class="circle" id="gal">
         <div class="ring">
@@ -59,7 +55,9 @@
         items[i].style.top=(50+35*Math.sin(-0.5*Math.PI-2*(1/items.length)*i*Math.PI))+"%"
       }
       </script>
-    <script src="js/aos.js"></script>
+      <!--right Click circular navigation menu-->
+    <script src="js/aos.js"></script><!--flip up animation detecting scrollindex-->
+    <!--Slide Slider menu-->
       <div id="clickonmenu" class="sidepanel" >
         <span href="javascript:void(0)" class="closemenu" onclick="closemenu()">&#9957;</span>
         <a href="#">Main</a>
@@ -70,14 +68,17 @@
         <a href="../html/signup.html">Register as</a>
         <a href="../html/signup.html">applicant</a>
       </div>
-      
-      
+      <!--Slide Slider menu-->
+      <!-- first place to click on to navigate to other page-->
+      <!--flashing menu icon-->
       <div class="blackmenu">
         <img src="img/menu_circular_icon_png.png" alt="menu-icon" height="100vh" width="100vw"onclick="sidemenuout()">
         <span class="menuitem">
         <img src="img/menu_circular_iconwhite.png"alt="white-sa" height="100vh" width="100vw" onclick="sidemenuout()">
         </span>
       </div>
+      <!--flashing menu icon-->
+      <!-- Content body-->
       <div id="main">
         <div class="content">
           <script type="text/javascript">
@@ -85,6 +86,7 @@
           AOS.init({
             duration: 600,
             });</script>
+            <!--Yale University Part-->
           <div class="Yale" data-aos="flip-up">
             <a href="../html/programmeList.html">
             <div class="Yalecontainer">
@@ -93,12 +95,14 @@
             
             <h2>Yale University</h2>
             <br>
-            <p class="Yaledescrip">Yale’s tree-lined campus in New Haven Connecticut has housed “a company of scholars and a society of friends” for over 250 years.Enjoy a (digital) stroll through what one architecture critic has called “the most beautiful urban campus in America.”</p>
-            </div>
+            
+            <div class="Yaledescrip">
+            <p >Yale’s tree-lined campus in New Haven Connecticut has housed “a company of scholars and a society of friends” for over 250 years.Enjoy a (digital) stroll through what one architecture critic has called “the most beautiful urban campus in America.”</p></div>
+            <br></div>
             <p class="YaleRdM">Read more..</p>
             </a>
           </div>
-
+<!--ANU University Part-->
           <div data-aos="flip-up">
             <a class ="Anu" href="../html/programmeList.html">
             <div class="Anu-container">
@@ -116,11 +120,11 @@
                 
                 There are eight buildings or complexes of buildings currently listed on the Commonwealth Heritage List (CHL) and following the ANU Heritage Study (2012) over 60 more buildings/complexes have been identified as meeting the threshold for listing on the Commonwealth Heritage List.</p>
             </div>
-            
+            <br>
             <p class="AnuRdM"href="TRUE.html">Read more...</p>
           </a>
           </div>
-
+<!--Australia Western University Part-->
           <div class="west" data-aos="flip-up">
             <a href="../html/programmeList.html">
               <div class="west-container">
@@ -146,18 +150,18 @@
 
           
         
-     
+     <!--particles interactive background-->
             <canvas id="demo-canvas"></canvas> 
         
       </div>
-      <!-- /container -->
+      <!-- /container 
       <script src="js/TweenLite.min.js"></script>
       <script src="js/EasePack.min.js"></script>
       <script src="js/rAF.js"></script>
       <script src="js/demo-1.js"></script>
       <script src="js/Rx.min.js"></script>
       <script src="js/rxcss.min.js"></script>
-      <script src="js/index.js"></script>
+      <script src="js/index.js"></script>-->
     
    </div>
   </body>
