@@ -106,7 +106,7 @@
   var cell2 = row.insertCell(1);
   cell1.innerHTML ="<span id='tableHead'>Subject</span>";
   cell2.innerHTML ="<span id='tableHead'>Grade</span>";
-
+  //show result after insert subject and grade
   function showResult(){
     var button =document.getElementById("button");
     var button1 =document.getElementById("addButton");
@@ -120,7 +120,7 @@
       cell2.innerHTML = "Grade" + i;
     }
   }
-
+  //add a row to enter subject and grade
   function addSubject(){
     var row = table.insertRow(count);
     var cell1 = row.insertCell(0);
