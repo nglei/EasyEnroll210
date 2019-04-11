@@ -13,6 +13,8 @@ $useDb = "USE easyenroll";
 $conn->query($createDb);
 $conn->query($useDb);
 
+
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -102,7 +104,7 @@ $conn->query($useDb);
         <h1>Programme List</h1>
       </div>
       <div class="main col-lg-2">
-        <a href="addProgramme.html">
+        <a href="addProgramme.php">
         <button type="button" class="btn btn-primary" name="addProgrammeBtn">Add Programme</button></a>
       </div>
 </div>
@@ -127,17 +129,6 @@ $conn->query($useDb);
 
 </div>
 <hr>
-<script>
-  //create programme list
-  var programmeList = document.getElementById("programmeList");
-  for ( var i = 0 ;i < 5 ;i++){
-    var a = document.createElement("a");
-    a.setAttribute("href","#");
-    a.setAttribute("class",'list-group-item list-group-item-action');
-    a.innerHTML = "Programme" + (i+1);
-    programmeList.appendChild(a);
-    }
-</script>
 
 
 

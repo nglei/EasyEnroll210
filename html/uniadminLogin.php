@@ -13,6 +13,14 @@ $useDb = "USE easyenroll";
 $conn->query($createDb);
 $conn->query($useDb);
 
+$getUniID = "select UniID from university where adminUsername = '".$_SESSION['loginUser']."'";
+	$result = $conn->query($getUniID);
+	if($result->num_rows == 1){
+		while($uniid = $result->fetch_assoc()){
+			$_SESSION['uniID'] = $uniid['UniID'];
+		}
+	}
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +28,11 @@ $conn->query($useDb);
     <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="../css/list.css  ">
       <link rel="stylesheet" type="text/css" href="../css/topcover.css">
-    <title>Add Programme</title>
+	  <link rel="stylesheet" type="text/css" href="../css/programmeList.css">
+	  <link rel="stylesheet" type="text/css" href="../css/singleDiv.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  
+    <title>EasyEnroll</title>
     <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
@@ -41,14 +53,15 @@ $conn->query($useDb);
             <a class="nav-link" href="../main/home.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addProgrammeList.html">Programme</a>
+            <a class="nav-link" href="addUniversityList.html">Programme</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="reviewApplication.html">Review Application</a>
+            <a class="nav-link" href="qualificationList.html">Review Application</a>
           </li>
 
         </ul>
-        <?php
+        
+		<?php
 			if(isset($_SESSION['loginUser'])){
 				echo '<ul class="dropdown nav navbar-nav navbar-right ml-auto">';
 					echo '<li class="nav-item dropdown" >';
@@ -81,13 +94,7 @@ $conn->query($useDb);
            <div class="container">
                <div class="row">
                    <div class="col-md-12 text-center">
-                       <h1 class="page-title">Programme</h1>
-                       <ul>
-                           <li>
-                               <a class="active" href="../main/home.html">Home</a>
-                           </li>
-                           <li>Programme</li>
-                       </ul>
+                       <h1 class="page-title">Home</h1>
                    </div>
                </div>
            </div>
@@ -95,47 +102,57 @@ $conn->query($useDb);
     </div>
 
     <!--main role="main" class="container"-->
-    <div class="container">
+<div class="container">
+<div class="function">
+<div class="" style="background-color: #eef3f6; ">
+            <div class="row">
+                <!-- Single Course Area -->
+                <!--div class="col-12 col-sm-6 col-lg-6 "onclick="location.href='qualificationList.php';" style="cursor: pointer;">
+                    <div class="single-course-area d-flex align-items-center  wow fadeInUp" data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;margin:80px;">
+                        <div class="course-icon">
+                            <i class="fa fa-table"></i>
+                        </div>
+                        <div class="course-content">
+                            <a href="#"><h4>Maintain Qualification</h4></a>
 
-<div class="row">
-      <div class="main col-lg-10">
-        <h1>Programme List</h1>
-      </div>
-      <div class="main col-lg-2">
-        <a href="addProgramme.html">
-        <button type="button" class="btn btn-primary" name="addProgrammeBtn">Add Programme</button></a>
-      </div>
+                        </div>
+                    </div>
+                </div-->
+				<div class="col-12 col-sm-6 col-lg-6" onclick="location.href='qualificationList.php';" style="cursor: pointer;">
+                    <div class="single-course-area d-flex align-items-center  wow fadeInUp" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp; margin:80px;">
+                        <div class="course-icon">
+                            <i class="fa fa-table"></i>
+                        </div>
+                        <div class="course-content">
+                            <h4>Add Programme</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Course Area -->
+                <div class="col-12 col-sm-6 col-lg-6" onclick="location.href='addUniversity.php';" style="cursor: pointer;">
+                    <div class="single-course-area d-flex align-items-center  wow fadeInUp" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp; margin:80px;">
+                        <div class="course-icon">
+                            <i class="fa fa-tasks"></i>
+                        </div>
+                        <div class="course-content">
+                            <h4>Review Application</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+			</div>
 </div>
-      <div class="main col-lg-10">
-        <ul class="list-group list-group-flush" id="programmeList">
-		<?php
-					$getProgramme = "SELECT * FROM programme where UniID = '".$_SESSION['uniID']."'";
-					$programme = $conn->query($getProgramme);
-					
-					if($programme->num_rows > 0){
-						while($row = $programme->fetch_assoc()){
-							echo "<a href='programmeView.php?pID=".$row['programmeID']."' class='list-group-item list-group-item-action'>".$row['programmeName']."</a>";
-						}
-					}
-					else{
-            echo "No Programme added.";
-					}
-					?>
-        </ul>
-      </div>
-
-
 </div>
-<hr>
 <script>
-  //create programme list
-  var programmeList = document.getElementById("programmeList");
-  for ( var i = 0 ;i < 5 ;i++){
+  //create university list
+  var universityList = document.getElementById("universityList");
+  for ( var i = 0 ;i < 8 ;i++){
     var a = document.createElement("a");
     a.setAttribute("href","#");
     a.setAttribute("class",'list-group-item list-group-item-action');
-    a.innerHTML = "Programme" + (i+1);
-    programmeList.appendChild(a);
+    a.innerHTML = "University " + (i+1);
+    universityList.appendChild(a);
     }
 </script>
 

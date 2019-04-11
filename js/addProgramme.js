@@ -1,6 +1,6 @@
 var progName = document.getElementById("progName");
 var duration = document.getElementById("inputDuration");
-var intake = document.getElementById("inputIntake");
+var date = document.getElementById("closingDate");
 var fee = document.getElementById("inputFee");
 var description = document.getElementById("inputDescription");
 
@@ -8,13 +8,13 @@ function validation(){
 
   validProg();
   validDuration();
-  validIntake();
+  validDate();
   validFee();
   validDescription();
 
   if(validProg()){
     if(validDuration()){
-      if(validIntake()){
+      if(validDate()){
         if(validFee()){
           if(validDescription()){
             return true;
@@ -46,10 +46,10 @@ function validation(){
     return true;
   }}
 
-  function validIntake(){
-  if(intake.value == ""){
-    document.getElementById("errorIntake").innerHTML="Please enter Intake of the programme";
-        intake.style.borderColor="red";
+  function validDate(){
+  if(date.value == ""){
+    document.getElementById("errorDate").innerHTML="Please enter closing date of the programme";
+        date.style.borderColor="red";
     return false;
   }
   else{

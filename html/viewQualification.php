@@ -136,7 +136,7 @@ if($result->num_rows > 0){
 
       <form class="form-add-programme" method="post" action="viewQualification.php" onsubmit="return validation()">
         <div class="mb-4">
-          <h1 class="h3 mb-3 font-weight-normal">New Qualification</h1>
+          <h1 class="h3 mb-3 font-weight-normal">Qualification Details</h1>
         </div>
 
         <div class="form-label-group">

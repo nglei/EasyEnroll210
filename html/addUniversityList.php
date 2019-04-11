@@ -12,15 +12,14 @@ $createDb = "CREATE DATABASE easyenroll";
 $useDb = "USE easyenroll";
 $conn->query($createDb);
 $conn->query($useDb);
-
- ?>
+?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="../css/list.css  ">
       <link rel="stylesheet" type="text/css" href="../css/topcover.css">
-    <title>Add Programme</title>
+    <title>Add University</title>
     <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
@@ -41,10 +40,10 @@ $conn->query($useDb);
             <a class="nav-link" href="../main/home.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addProgrammeList.html">Programme</a>
+            <a class="nav-link" href="addUniversityList.html">University</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="reviewApplication.html">Review Application</a>
+            <a class="nav-link" href="qualificationList.html">Qualification</a>
           </li>
 
         </ul>
@@ -53,7 +52,7 @@ $conn->query($useDb);
 				echo '<ul class="dropdown nav navbar-nav navbar-right ml-auto">';
 					echo '<li class="nav-item dropdown" >';
 					echo '<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-					$getName = "select * from user where username ='".$_SESSION['loginUser']."'";
+					$getName = "select * from sasadmin where username ='".$_SESSION['loginUser']."'";
 					$user=$conn->query($getName);
 					if($user->num_rows > 0){
 						while($name = $user->fetch_assoc()){
@@ -81,12 +80,12 @@ $conn->query($useDb);
            <div class="container">
                <div class="row">
                    <div class="col-md-12 text-center">
-                       <h1 class="page-title">Programme</h1>
+                       <h1 class="page-title">University</h1>
                        <ul>
                            <li>
                                <a class="active" href="../main/home.html">Home</a>
                            </li>
-                           <li>Programme</li>
+                           <li>University</li>
                        </ul>
                    </div>
                </div>
@@ -96,48 +95,35 @@ $conn->query($useDb);
 
     <!--main role="main" class="container"-->
     <div class="container">
-
+<div class="content">
 <div class="row">
       <div class="main col-lg-10">
-        <h1>Programme List</h1>
+        <h1>University List</h1>
       </div>
       <div class="main col-lg-2">
-        <a href="addProgramme.html">
-        <button type="button" class="btn btn-primary" name="addProgrammeBtn">Add Programme</button></a>
+        <a href="addUniversity.php">
+        <button type="button" class="btn btn-primary" name="addProgrammeBtn">Add University</button></a>
       </div>
 </div>
       <div class="main col-lg-10">
-        <ul class="list-group list-group-flush" id="programmeList">
-		<?php
-					$getProgramme = "SELECT * FROM programme where UniID = '".$_SESSION['uniID']."'";
-					$programme = $conn->query($getProgramme);
+        <ul class="list-group list-group-flush" id="universityList">
+			<?php
+					$getUniversity = "SELECT * FROM university";
+					if(($university = $conn->query($getUniversity))==TRUE){
 					
-					if($programme->num_rows > 0){
-						while($row = $programme->fetch_assoc()){
-							echo "<a href='programmeView.php?pID=".$row['programmeID']."' class='list-group-item list-group-item-action'>".$row['programmeName']."</a>";
+					if($university->num_rows > 0){
+						while($row = $university->fetch_assoc()){
+							echo "<a href='viewQualification.php?qID=".$row['UniID']."' class='list-group-item list-group-item-action'>".$row['UniName']."</a>";
 						}
-					}
-					else{
-            echo "No Programme added.";
-					}
+					}else{
+						echo "No University in the list";
+					}}
 					?>
         </ul>
       </div>
-
-
 </div>
-<hr>
-<script>
-  //create programme list
-  var programmeList = document.getElementById("programmeList");
-  for ( var i = 0 ;i < 5 ;i++){
-    var a = document.createElement("a");
-    a.setAttribute("href","#");
-    a.setAttribute("class",'list-group-item list-group-item-action');
-    a.innerHTML = "Programme" + (i+1);
-    programmeList.appendChild(a);
-    }
-</script>
+</div>
+
 
 
 
