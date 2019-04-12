@@ -48,7 +48,7 @@ $errorMessage="";
 		header('Location: sasadminLogin.php');
 		}
 		else if($_SESSION['selectedProgramme'] != ''){
-		  header('location:programmeView.php?pID='.$_SESSION['selectedProgramme'].'');
+		  header('location:coursedetail.php?pID='.$_SESSION['selectedProgramme'].'');
 		}
         else{
 			header('Location: index.php');

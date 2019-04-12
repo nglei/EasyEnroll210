@@ -1,14 +1,17 @@
 .coursedetail{
-    padding:5px 20px;
+    padding:20px;
     border-radius:5px;
-    height:56vh;
-    width:91vh;
+
     background-color:rgba(255,254,243, 0.87);
     color:rgb(65,71,74);
     border:inset 5px rgb(64,73,86);
 }
-.coursedetail:hover{
+
+.mb-30{
+	margin-bottom:30px;
+}
+/*.coursedetail:hover{
     box-shadow: 0px 0px 7px 7px rgb(89,77,98);
     transition: .48s;
     transform: scale(1.2);
-}
+}*/
