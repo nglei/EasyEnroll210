@@ -9,29 +9,18 @@ if ($conn->connect_error){
 }
 $useDb = "USE easyenroll";
 $conn->query($useDb);
-if(isset($_GET['pID'])){
-$_SESSION['selectedProgramme'] = $_GET['pID'];}	
-$universityName = "";
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-	if(isset($_SESSION['loginUser'])){
-	echo "<script>window.location.href = 'qualificationForApply.php?pID=".$_SESSION['selectedProgramme']."';</script>";
-	
-	
-	}else{
-		header("location:signin.php");
-}}
+if(isset($_GET['pID'])){
+$_SESSION['programme'] = $_GET['pID'];}	
 ?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-      <link rel="stylesheet" type="text/css" href="../css/form.css">
-      <link rel="stylesheet" type="text/css" href="../css/list.css">
+      <link rel="stylesheet" type="text/css" href="../css/list.css  ">
       <link rel="stylesheet" type="text/css" href="../css/topcover.css">
-      <link rel="stylesheet" type="text/css" href="../css/programmeList.css">
-      <link rel="stylesheet" type="text/css" href="../css/coursedetail.css">
-    <title>Course Detail</title>
+      <link rel="stylesheet" type="text/css" href="../css/applyProgramme.css">
+    <title>Review Application</title>
     <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
@@ -52,10 +41,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <a class="nav-link" href="../main/home.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="programmeList.html">Programme</a>
+            <a class="nav-link" href="addProgrammeList.html">Programme</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">University</a>
+            <a class="nav-link" href="reviewApplication.html">Review Application</a>
           </li>
 
         </ul>
@@ -92,15 +81,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            <div class="container">
                <div class="row">
                    <div class="col-md-12 text-center">
-                       <h1 class="page-title">Programme Details</h1>
+                       <h1 class="page-title">Review Application</h1>
                        <ul>
                            <li>
                                <a class="active" href="../main/home.html">Home</a>
                            </li>
                            <li>
-                               <a class="active" href="programmeList.html">Programme</a>
+                               <a class="active" href="reviewApplication.html">Review Application</a>
                            </li>
-                           <li>Course 001</li>
+                           <li>Application List</li>
                        </ul>
                    </div>
                </div>
@@ -108,48 +97,63 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
        </div>
     </div>
 
+    <!--main role="main" class="container"-->
     <div class="container">
-            <?php
-			$getProgramme = "SELECT * from programme where programmeID =".$_SESSION['selectedProgramme'];
-			$result = $conn->query($getProgramme);
-			if($result->num_rows > 0){
-				while($row = $result->fetch_assoc()){
-											
-					$getUniversity = "SELECT * FROM university where UniID ='".$row['UniID']."'";
-					$uniArray = $conn->query($getUniversity);
-					if($uniArray->num_rows > 0){
-						while($uni = $uniArray->fetch_assoc()){
-							$universityName = $uni['UniName'];
+
+<div class="application">
+      <div>
+        <h1>All Application</h1>
+      </div>
+
+      <div>
+        <table id= "application" class="table">
+		<thead>
+			<tr>
+				<td>Applicant's Name</td>
+				<td>Qualification Obtained</td>
+				<td>Overall Score</td>
+				<td>Status</td>
+			</tr>
+		</thead>
+		<tbody>
+		<?php
+			$getApplication = "select * from application,user where user.username = application.applicant and application.progID =".$_GET['pID']." order by applicationStatus asc";
+			$result = $conn->query($getApplication);
+			if($result->num_rows >0){
+				while($row = $result->fetch_assoc()){					
+					echo  "<tr onclick='location.href=\"reviewApplication.php?aID=".$row['applicationID']."\";'>";
+					echo "<td class='td-30'>".$row['name']."</td>";
+					$getQualification = "select * from qualificationobtained,qualification where qualification.qualificationID=qualificationobtained.qualificationID and username='".$row['applicant']."'";
+					$getResult = $conn->query($getQualification);
+					if($getResult->num_rows > 0){
+						while($qualification = $getResult->fetch_assoc()){
+							echo "<td class='td-45'>".$qualification["qualificationName"]."</td>";
+							echo "<td class='td-10'>".$qualification['overallScore']."</td>";
 						}
 					}
-					echo '<div class="mb-30 main col-12">';
-					echo '<div class="coursedetail">';
-					echo '<div class="mb-30">';
-					echo '<img src="../'.$row['imgURL'].'" style="height:300px;width:100%;" alt="programmeImage"></div>';
-					echo '<h2>'.$row['programmeName'].'</h2></br>';
-					echo '<div class="row"><div class="col-6">';
-					echo '<b>Duration: </b></br>'.$row['duration'].'</div>';
-					echo '<div class="col-6">';
-					echo '<b>Closing Date: </b></br>'.$row['closingDate'].'</div>';
-					echo '<div class="col-6">';
-					echo '</br><b>Programme Fee: </b></br>RM'.$row['totalFee'].'</div>';
-					echo '</div>';
-					echo '<div class="mb-30"></br><b>About this Programme</b><br></div>';
-					echo '<p>'.$row['progDescription'].'</p>';
+					if($row['applicationStatus']=="Successful"){
+						echo "<td class='td-15'><div class='green'>".$row['applicationStatus']."</div></td>";
+					}else if($row['applicationStatus']=="New"){
+						echo "<td class='td-15'><div>".$row['applicationStatus']."</div></td>";
+					}else{
+						echo "<td class='td-15'><div class='red'>".$row['applicationStatus']."</div></td>";
+					}										
+					echo "</tr>";						
 				}
+			}else{
+				echo "<tr><td colspan='4'>No Application at the moment</td></tr>";
 			}
-			 ?>
-				<div>
-					<form method="post" action="coursedetail.php">
-									<input type="submit" name="apply" class="btn btn-primary" value="Apply This Programme">
-									</form>
-				</div>
-            </div>
-        </div>
-	
-          </div>
+			?>
+		</tbody>
 
-          <hr>
+        </table>
+		</div>
+		<div class="mb-30 text-center">
+			<input type="button" name="back" class="btn btn-primary btn-sm" onclick="location.href = 'applicationList.php';" value="Back">
+		</div>
+</div>
+
+</div>
 
 
 

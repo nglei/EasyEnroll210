@@ -77,17 +77,32 @@
     <!--main role="main" class="container"-->
 
       <div class="container">
+	  
         <div class="addQualification">
-          <div class="">
-              <h1>Qualification</h1>
-          </div>
-          <div class="col">
+			<div class="">
+				<h1>Qualification</h1>
+			</div>
+        <div class="col">
+		<form>
+		<div>
+		<label for="selectQualification">Select a qualification</label>
+            <select id="selectQualification" name="qualification" class="form-control">
+            <option value="type" disabled="" selected="">Qualification</option>
+            <option value="1">STPM</option>
+            <option value="2">A-Levels</option>
+            <option value="3">Australian Matriculation</option>
+            <option value="4">Canadian Pre-University</option>
+            <option value="5">Unified Examination Certificate (UEC)</option>
+            <option value="6">International Baccalaureate</option>
+            </select>
+		</div>
               <table id= "qualification" class="table">
                 <tr>
                   <td id="button"><button class="btn btn-sm btn-primary " onclick="addSubject()">Add Subject</button></td>
                 </tr>
 
               </table>
+		</form>
               <div class="text-center" id="addButton">
               <button class="btn btn-lg btn-primary" type="submit" onclick="showResult()">Add Qualification</button>
               </div>
@@ -96,7 +111,7 @@
           <a href="programmeList.html"><button class="btn btn-lg btn-primary btn-block" type="submit">Apply Programme</button></a>
         </div>
 
-
+		
         </div>
 <script>
   var count = 1;

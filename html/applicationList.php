@@ -1,3 +1,17 @@
+<?php
+session_start();
+$_SESSION['servername'] = "localhost";
+$_SESSION['username'] = "root";
+$_SESSION['password'] = "";
+$conn = new mysqli($_SESSION['servername'], $_SESSION['username'],$_SESSION['password']);
+if ($conn->connect_error){
+  die("Connection failed: " . $conn->connect_error);
+}
+$useDb = "USE easyenroll";
+$conn->query($useDb);
+
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,16 +47,27 @@
           </li>
 
         </ul>
-        <ul class="dropdown nav navbar-nav navbar-right ml-auto">
-          <li class="nav-item dropdown" >
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          UniAdmin's Name
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="../main/index.html">Logout</a>
-        </div>
-        </li>
-        </ul>
+        <?php
+			if(isset($_SESSION['loginUser'])){
+				echo '<ul class="dropdown nav navbar-nav navbar-right ml-auto">';
+					echo '<li class="nav-item dropdown" >';
+					echo '<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+					$getName = "select * from user where username ='".$_SESSION['loginUser']."'";
+					$user=$conn->query($getName);
+					if($user->num_rows > 0){
+						while($name = $user->fetch_assoc()){
+							echo "Welcome, ".$name['name']."</a>";
+						}
+					}
+					echo '<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">';
+					echo '<a class="dropdown-item" href="signout.php">Logout</a>';
+					echo '</div></li></ul>';
+                }else{
+					echo '<ul class="nav navbar-nav navbar-right ml-auto">';
+					echo '<li class="nav-item" ><a class="nav-link" href="signin.php">Register/Login</a></li></ul>';
+				
+                }
+        ?>
 
       </div>
 
@@ -71,12 +96,12 @@
     <!--main role="main" class="container"-->
     <div class="container">
 
-<div class="row">
-      <div class="main col-lg">
+<div class="application">
+      <div>
         <h1>All Application</h1>
       </div>
-</div>
-      <div class="main col-lg">
+
+      <div>
         <table id= "application" class="table">
 		<thead>
 			<tr>
@@ -86,38 +111,38 @@
 			</tr>
 		</thead>
 		<tbody>
-		
+		<?php
+		$getProgramme = "select * from programme where UniID = '".$_SESSION['uniID']."'";
+		$result = $conn->query($getProgramme);
+		if($result->num_rows >0){
+			while($row = $result->fetch_assoc()){
+				echo  "<tr onclick='location.href=\"allApplication.php?pID=".$row['programmeID']."\";'>";
+				echo "<td class='td-70'>".$row['programmeName']."</td>";
+				$getTotalApplication = "select count(*) as numOfApp from application where progID = ".$row['programmeID'];
+				$total = $conn->query($getTotalApplication);
+				if($total->num_rows > 0){
+					while($count = $total->fetch_assoc()){
+						echo "<td class='td-15'>".$count["numOfApp"]."</td>";
+					}
+				}
+				if($row['closingDate'] < date("Y-m-d")){
+					echo "<td class='td-15'><div class='red'>".$row['closingDate']."</div></td>";
+				}else{
+					echo "<td class ='td-15'><div class='green'>".$row['closingDate']."</div></td>";
+				}
+				echo "</tr>";
+			}
+		}
+		?>
 		</tbody>
 
         </table>
       </div>
+	  </div>
 
 
 </div>
-<script>
-//create table for programme list with number of application
-var table = document.getElementById("application");
-var row = table.insertRow(0);
-var cell1 = row.insertCell(0);
-var cell2 = row.insertCell(1);
-var cell3 = row.insertCell(2);
-var cell4 = row.insertCell(3);
-cell1.innerHTML ="<span id='tableHead'>Programme List</span>";
-cell2.innerHTML ="<span id='tableHead'>Closing Date</span>";
-cell3.innerHTML ="<span id='tableHead'>Number Of Application</span>";
-for(i = 1 ; i < 7;i++){
-  var row = table.insertRow(i);
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  var cell4 = row.insertCell(3);
-  cell1.innerHTML = "Programme " + i;
-  cell2.innerHTML = "Date " + i;
-  cell3.innerHTML = 20 + i;
-  cell4.innerHTML ="<a href='applicationList.html'><button class='btn btn-md btn-primary'>View</button></a>";
-}
 
-</script>
 
 
 

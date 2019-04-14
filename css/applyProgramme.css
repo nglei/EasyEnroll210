@@ -10,7 +10,8 @@
   color: #212121;
 }
 .addQualification {
-  padding: 10px;
+  margin:30px;
+  padding:20px;
   background-color: rgba(211, 211, 211, 0.5);
 }
 
@@ -19,6 +20,37 @@
   padding: 10px;
 }
 
-#tableHead{
-  font-weight: bold;
+#application thead{
+	font-weight: bold;
+}
+
+#application tbody tr:hover {background-color:#98FB98;
+cursor: pointer;}
+.td-70{
+	width:70%;
+}
+.td-30{
+	width:30%
+}
+.td-55{
+	width:45%
+}
+.td-15{
+	width:15%;
+}
+.td-10{
+	width:10%;
+}
+
+.yellow{
+	background-color:yellow; width:40%;color:white;
+	width:80%;
+}
+.red{
+	background-color:red; width:40%;color:white;
+	width:80%;
+}
+.green{
+	background-color:limegreen; width:40%;color:white;
+	width:80%;
 }
