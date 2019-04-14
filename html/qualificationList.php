@@ -37,10 +37,10 @@ $conn->query($useDb);
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">Home</a>
+            <a class="nav-link" href="sasadminLogin.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addUniversityList.html">University</a>
+            <a class="nav-link" href="addUniversityList.php">University</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Qualification</a>
@@ -83,7 +83,7 @@ $conn->query($useDb);
                        <h1 class="page-title">Qualification</h1>
                        <ul>
                            <li>
-                               <a class="active" href="../main/home.html">Home</a>
+                               <a class="active" href="sasadminLogin.php">Home</a>
                            </li>
                            <li>Qualification</li>
                        </ul>
@@ -101,7 +101,7 @@ $conn->query($useDb);
         <h1>Qualification List</h1>
       </div>
       <div class="main col-lg-2">
-        <a href="addQualification.html">
+        <a href="addQualification.php">
         <button type="button" class="btn btn-primary" name="addProgrammeBtn">Add Qualification</button></a>
       </div>
 </div>

@@ -46,10 +46,10 @@ $conn->query($useDb);
             <a class="nav-link" href="../main/home.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addUniversityList.html">University</a>
+            <a class="nav-link" href="addUniversityList.php">University</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="qualificationList.html">Qualification</a>
+            <a class="nav-link" href="qualificationList.php">Qualification</a>
           </li>
 
         </ul>
@@ -122,7 +122,7 @@ $conn->query($useDb);
                     </div>
                 </div>
                 <!-- Single Course Area -->
-                <div class="col-12 col-sm-6 col-lg-6" onclick="location.href='addUniversity.php';" style="cursor: pointer;">
+                <div class="col-12 col-sm-6 col-lg-6" onclick="location.href='addUniversityList.php';" style="cursor: pointer;">
                     <div class="single-course-area d-flex align-items-center  wow fadeInUp" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp; margin:80px;">
                         <div class="course-icon">
                             <i class="fa fa-tasks"></i>

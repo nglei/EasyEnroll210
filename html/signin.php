@@ -85,10 +85,10 @@ $errorMessage="";
             <a class="nav-link" href="../main/index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="programmeList.html">Programme</a>
+            <a class="nav-link" href="programmeList.php">Programme</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">Universities</a>
+            <a class="nav-link" href="#">Universities</a>
           </li>
         </ul>
       </div>

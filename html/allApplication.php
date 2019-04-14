@@ -30,7 +30,7 @@ $_SESSION['programme'] = $_GET['pID'];}
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="../main/home.html">EasyEnroll</a>
+      <a class="navbar-brand" href="uniadminLogin.php">EasyEnroll</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -38,13 +38,13 @@ $_SESSION['programme'] = $_GET['pID'];}
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">Home</a>
+            <a class="nav-link" href="uniadminLogin.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addProgrammeList.html">Programme</a>
+            <a class="nav-link" href="addProgrammeList.php">Programme</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="reviewApplication.html">Review Application</a>
+            <a class="nav-link" href="applicationList.php">Review Application</a>
           </li>
 
         </ul>
@@ -84,10 +84,10 @@ $_SESSION['programme'] = $_GET['pID'];}
                        <h1 class="page-title">Review Application</h1>
                        <ul>
                            <li>
-                               <a class="active" href="../main/home.html">Home</a>
+                               <a class="active" href="uniadminLogin.php">Home</a>
                            </li>
                            <li>
-                               <a class="active" href="reviewApplication.html">Review Application</a>
+                               <a class="active" href="applicationList.php">Review Application</a>
                            </li>
                            <li>Application List</li>
                        </ul>

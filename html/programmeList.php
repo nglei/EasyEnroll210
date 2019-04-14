@@ -40,7 +40,7 @@ $conn->query($useDb);
             <a class="nav-link" href="../main/home.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="programmeList.html">Programme</a>
+            <a class="nav-link" href="programmeList.php">Programme</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../main/home.html">University</a>
@@ -108,7 +108,7 @@ $conn->query($useDb);
 		while($row = $programme->fetch_assoc()){
 			echo '<div class="col-12 col-lg-4">';
 			echo '<div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">';
-			echo '<div class="progImg"><img src="../'.$row['imgURL'].'"></div>';
+			echo '<div class="progImg"><img src="'.$row['imgURL'].'"></div>';
 			echo '<div class="popular-course-content">';
 			echo '<h5>'.$row['programmeName'].'</h5>';
 			$getUniID = "select * from university where UniID = '".$row['UniID']."'";

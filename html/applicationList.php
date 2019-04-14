@@ -29,7 +29,7 @@ $conn->query($useDb);
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="../main/home.html">EasyEnroll</a>
+      <a class="navbar-brand" href="uniadminLogin.php">EasyEnroll</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,10 +37,10 @@ $conn->query($useDb);
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">Home</a>
+            <a class="nav-link" href="uniadminLogin.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addProgrammeList.html">Programme</a>
+            <a class="nav-link" href="addProgrammeList.php">Programme</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Review Application</a>
@@ -83,7 +83,7 @@ $conn->query($useDb);
                        <h1 class="page-title">Review Application</h1>
                        <ul>
                            <li>
-                               <a class="active" href="../main/home.html">Home</a>
+                               <a class="active" href="uniadminLogin.php">Home</a>
                            </li>
                            <li>Review Application</li>
                        </ul>

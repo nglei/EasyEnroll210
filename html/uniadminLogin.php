@@ -50,13 +50,13 @@ $getUniID = "select UniID from university where adminUsername = '".$_SESSION['lo
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">Home</a>
+            <a class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addUniversityList.html">Programme</a>
+            <a class="nav-link" href="addProgrammeList.php">Programme</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="qualificationList.html">Review Application</a>
+            <a class="nav-link" href="applicationList.php">Review Application</a>
           </li>
 
         </ul>
@@ -118,7 +118,7 @@ $getUniID = "select UniID from university where adminUsername = '".$_SESSION['lo
                         </div>
                     </div>
                 </div-->
-				<div class="col-12 col-sm-6 col-lg-6" onclick="location.href='qualificationList.php';" style="cursor: pointer;">
+				<div class="col-12 col-sm-6 col-lg-6" onclick="location.href='addProgrammeList.php';" style="cursor: pointer;">
                     <div class="single-course-area d-flex align-items-center  wow fadeInUp" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp; margin:80px;">
                         <div class="course-icon">
                             <i class="fa fa-table"></i>
@@ -129,7 +129,7 @@ $getUniID = "select UniID from university where adminUsername = '".$_SESSION['lo
                     </div>
                 </div>
                 <!-- Single Course Area -->
-                <div class="col-12 col-sm-6 col-lg-6" onclick="location.href='addUniversity.php';" style="cursor: pointer;">
+                <div class="col-12 col-sm-6 col-lg-6" onclick="location.href='applicationList.php';" style="cursor: pointer;">
                     <div class="single-course-area d-flex align-items-center  wow fadeInUp" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp; margin:80px;">
                         <div class="course-icon">
                             <i class="fa fa-tasks"></i>

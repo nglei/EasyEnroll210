@@ -37,13 +37,13 @@ $conn->query($useDb);
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">Home</a>
+            <a class="nav-link" href="sasadminLogin.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addUniversityList.html">University</a>
+            <a class="nav-link" href="addUniversityList.php">University</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="qualificationList.html">Qualification</a>
+            <a class="nav-link" href="qualificationList.php">Qualification</a>
           </li>
 
         </ul>
@@ -83,7 +83,7 @@ $conn->query($useDb);
                        <h1 class="page-title">University</h1>
                        <ul>
                            <li>
-                               <a class="active" href="../main/home.html">Home</a>
+                               <a class="active" href="sasadminLogin.php">Home</a>
                            </li>
                            <li>University</li>
                        </ul>
@@ -113,7 +113,7 @@ $conn->query($useDb);
 					
 					if($university->num_rows > 0){
 						while($row = $university->fetch_assoc()){
-							echo "<a href='viewQualification.php?qID=".$row['UniID']."' class='list-group-item list-group-item-action'>".$row['UniName']."</a>";
+							echo "<a href='#' class='list-group-item list-group-item-action'>".$row['UniName']."</a>";
 						}
 					}else{
 						echo "No University in the list";

@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <a class="nav-link" href="../main/home.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="programmeList.html">Programme</a>
+            <a class="nav-link" href="programmeList.php">Programme</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../main/home.html">University</a>
@@ -98,9 +98,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                <a class="active" href="../main/home.html">Home</a>
                            </li>
                            <li>
-                               <a class="active" href="programmeList.html">Programme</a>
+                               <a class="active" href="programmeList.php">Programme</a>
                            </li>
-                           <li>Course 001</li>
+                           <li>Programme Details</li>
                        </ul>
                    </div>
                </div>
@@ -125,7 +125,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					echo '<div class="mb-30 main col-12">';
 					echo '<div class="coursedetail">';
 					echo '<div class="mb-30">';
-					echo '<img src="../'.$row['imgURL'].'" style="height:300px;width:100%;" alt="programmeImage"></div>';
+					echo '<img src="'.$row['imgURL'].'" style="height:300px;width:100%;" alt="programmeImage"></div>';
 					echo '<h2>'.$row['programmeName'].'</h2></br>';
 					echo '<div class="row"><div class="col-6">';
 					echo '<b>Duration: </b></br>'.$row['duration'].'</div>';

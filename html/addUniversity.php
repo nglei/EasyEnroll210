@@ -100,13 +100,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">Home</a>
+            <a class="nav-link" href="sasadminLogin.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addUniversityList.html">University</a>
+            <a class="nav-link" href="addUniversityList.php">University</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="qualificationList.html">Qualification</a>
+            <a class="nav-link" href="qualificationList.php">Qualification</a>
           </li>
 
         </ul>
@@ -144,9 +144,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                        <h1 class="page-title">Add University</h1>
                        <ul>
                            <li>
-                               <a class="active" href="../main/home.html">Home</a>
+                               <a class="active" href="sasadminLogin.php">Home</a>
                            </li>
-                           <li><a href="addUniversityList.html">University</a></li>
+                           <li><a href="addUniversityList.php">University</a></li>
                            <li>Add University</li>
                        </ul>
                    </div>
@@ -158,7 +158,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
  ?>
     <main role="main" class="container">
-      <div class="content">
+      <div class="application">
 
 
       <form class="" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validation()">

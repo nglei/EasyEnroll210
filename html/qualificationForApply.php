@@ -131,7 +131,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <a class="nav-link" href="../main/home.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="programmeList.html">Programme</a>
+            <a class="nav-link" href="programmeList.php">Programme</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../main/home.html">University</a>
@@ -177,7 +177,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                <a class="active" href="../main/home.html">Home</a>
                            </li>
                            <li>
-                               <a class="active" href="programmeList.html">Programme</a>
+                               <a class="active" href="programmeList.php">Programme</a>
                            </li>
                            <li>
                                <a class="active" href="#">Programme Details</a>
@@ -201,9 +201,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="col">
 		<form action="qualificationForApply.php" onsubmit="return validation()" method="post" >
 		<div>
-		<label for="selectQualification">Select a qualification</label>
+		<label>Select a qualification</label>
             <select id="selectQualification" name="qualification" class="form-control">
-            <option value="type" disabled="" selected="">Qualification</option>
+            
+            <option value="" disabled selected>Qualification</option>
             <?php
                 $getQualification = "SELECT qualificationID,qualificationName from qualification";
                 $qualification = $conn->query($getQualification);
@@ -298,7 +299,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		}
 		return false;
 		function validQualification(){
-			if(selectQual == "type"){
+			if(selectQual == ""){
 				document.getElementById("errorQualification").innerHTML="Please Choose a Qualification";
 				qualification.style.borderColor="red";
 				qualification.focus();
@@ -312,7 +313,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	qualification.onchange = function(){
 	var selectValue = qualification[qualification.selectedIndex].value;
 	var viewBtn = document.getElementById("viewBtn");
-	if(selectValue != "type"){
+	if(selectValue != ""){
 		document.getElementById("errorQualification").innerHTML="";
 		qualification.style.borderColor="grey";
 	}

@@ -32,7 +32,7 @@ $conn->query($useDb);
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="../main/home.html">EasyEnroll</a>
+      <a class="navbar-brand" href="uniadminLogin.php">EasyEnroll</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -40,13 +40,13 @@ $conn->query($useDb);
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">Home</a>
+            <a class="nav-link" href="uniadminLogin.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addProgrammeList.html">Programme</a>
+            <a class="nav-link" href="addProgrammeList.php">Programme</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="reviewApplication.html">Review Application</a>
+            <a class="nav-link" href="applicationList.php">Review Application</a>
           </li>
 
         </ul>
@@ -86,7 +86,7 @@ $conn->query($useDb);
                        <h1 class="page-title">Programme</h1>
                        <ul>
                            <li>
-                               <a class="active" href="../main/home.html">Home</a>
+                               <a class="active" href="uniadminLogin.php">Home</a>
                            </li>
                            <li>Programme</li>
                        </ul>
@@ -116,7 +116,7 @@ $conn->query($useDb);
 					
 					if($programme->num_rows > 0){
 						while($row = $programme->fetch_assoc()){
-							echo "<a href='programmeView.php?pID=".$row['programmeID']."' class='list-group-item list-group-item-action'>".$row['programmeName']."</a>";
+							echo "<a href='coursedetail.php?pID=".$row['programmeID']."' class='list-group-item list-group-item-action'>".$row['programmeName']."</a>";
 						}
 					}
 					else{

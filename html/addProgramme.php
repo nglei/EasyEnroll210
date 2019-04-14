@@ -68,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="../main/home.html">EasyEnroll</a>
+      <a class="navbar-brand" href="uniadminLogin.php">EasyEnroll</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -76,13 +76,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">Home</a>
+            <a class="nav-link" href="uniadminLogin.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addProgrammeList.html">Programme</a>
+            <a class="nav-link" href="addProgrammeList.php">Programme</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="reviewApplication.html">Review Application</a>
+            <a class="nav-link" href="applicationList.php">Review Application</a>
           </li>
 
         </ul>
@@ -122,9 +122,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                        <h1 class="page-title">Add Programme</h1>
                        <ul>
                            <li>
-                               <a class="active" href="index.html">Home</a>
+                               <a class="active" href="uniadminLogin.php">Home</a>
                            </li>
-                           <li><a href="addProgrammeList.html">Programme</a></li>
+                           <li><a href="addProgrammeList.php">Programme</a></li>
                            <li>Add Programme</li>
                        </ul>
                    </div>

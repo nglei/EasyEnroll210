@@ -61,13 +61,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">Home</a>
+            <a class="nav-link" href="sasadminLogin.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addUniversityList.html">University</a>
+            <a class="nav-link" href="addUniversityList.php">University</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="qualificationList.html">Qualification</a>
+            <a class="nav-link" href="qualificationList.php">Qualification</a>
           </li>
 
         </ul>
