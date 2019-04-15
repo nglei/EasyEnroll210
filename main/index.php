@@ -1,10 +1,115 @@
-<!DOCTYPE html>
+<?php
+session_start();
+$_SESSION['servername'] = "localhost";
+$_SESSION['username'] = "root";
+$_SESSION['password'] = "";
+$conn = new mysqli($_SESSION['servername'], $_SESSION['username'],$_SESSION['password']);
+if ($conn->connect_error){
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$createDb = "CREATE DATABASE easyenroll";
+$useDb = "USE easyenroll";
+$conn->query($createDb);
+$conn->query($useDb);
+
+$createUserTb = "CREATE TABLE user(username varchar(50) PRIMARY KEY,password varchar(25),
+email varchar(40),name varchar(40) )";
+$conn->query($createUserTb);
+
+$createAdminTb = "CREATE TABLE sasadmin(username varchar(50) PRIMARY KEY,password varchar(25),
+email varchar(40),name varchar(40) )";
+$conn->query($createAdminTb);
+
+$addAdmin ="  INSERT into sasadmin values('admin1','admin123','admin@gmail.com','Admin One')";
+$conn->query($addAdmin);
+
+$createApplicantTb = "CREATE TABLE applicant(
+username varchar(50) PRIMARY KEY,
+idtype varchar(10),
+idno varchar(20),
+mobileNo varchar(14),
+dateOfBirth date,
+foreign key (username) references user(username))";
+$conn->query($createApplicantTb);
+
+$createQualificationTb ="CREATE TABLE qualification(
+qualificationID int auto_increment not null primary key,
+qualificationName varchar(50),
+minimumScore int(10),
+maximumScore int(10),
+method varchar(20),
+numOfSubject int(5),
+gradeList varchar(200))";
+$conn->query($createQualificationTb);
+
+$setIDindex = "alter table qualification AUTO_INCREMENT=10001";
+$conn->query($setIDindex);
+
+$qualificationObtainedTb = "CREATE table qualificationObtained(
+qobtainedID int auto_increment primary key not null,
+username varchar(50),
+qualificationID int,
+overallScore int(10),
+foreign key (username) references user(username),
+foreign key (qualificationID) references qualification(qualificationID))";
+$conn->query($qualificationObtainedTb);
+
+$setID = "alter table qualificationObtained AUTO_INCREMENT=20001";
+$conn->query($setID);
+
+$resultTb = "CREATE table result(
+resultID int not null auto_increment primary key,
+username varchar(50),
+subject varchar(30),
+grade varchar(5),
+foreign key (username) references user(username))";
+$conn->query($resultTb);
+
+$programmeTb = "create table programme(
+programmeID int auto_increment primary key not null,
+UniID VARCHAR(12),
+programmeName varchar(1000),
+duration varchar(50),
+totalFee int(10),
+progDescription varchar(2000),
+closingDate date,
+imgURL varchar(200),
+foreign key (UniID) references university(UniID))";
+$conn->query($programmeTb);
+
+$setProgID = "alter table programme AUTO_INCREMENt = 40001";
+$conn->query($setProgID);
+
+$entryReqTb = "CREATE TABLE entryReq(
+programmeID int,
+qualificationID int,
+entryScore decimal(6,1),
+foreign key (programmeID) references programme(programmeID),
+foreign key (qualificationID) references qualification(qualificationID))";
+$conn->query($entryReqTb);
+
+$applicationTb = "create table application(
+applicationID int auto_increment primary key,
+applicationDate date,
+applicationStatus varchar(20),
+applicant varchar(50),
+progID int,
+foreign key (applicant) references applicant(username),
+foreign key (progID) references programme(programmeID));";
+$conn->query($applicationTb);
+
+$setapplicationID = "alter table application AUTO_INCREMENt = 60001";
+$conn->query($setapplicationID);
+
+ ?>
+ <!DOCTYPE html>
 <html class="no-js" lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>桌面</title>
+    <title>EasyEnroll Index(Before login)</title>
     <style>
     html, body{
       margin:0;
