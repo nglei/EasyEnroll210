@@ -74,61 +74,71 @@ if ($conn->connect_error){
 <!--welcome message-->
 <!--content body-->
 <?php
-$application = SELECT 
-    <div class="content">
-<!--Yale University Part-->
-            <div class="yale">
-                <a href="../html/programmeList.html">
-                <img src="img/Yale/Campus=committee.jpg" alt="Yale">
-                <br><br>
-                <h2>Yale</h2>
-                <div class="Yalecontent">
-                <p>Even before our nation’s founders immortalized their eloquent vision of life, liberty, and the pursuit of happiness, Yale College was instilling similar values in its students. Since our founding in 1701, generations of undergraduates have sought education and enlightenment at Yale in a dedicated pursuit of knowledge and leadership skills.</p></div>
-                <div class="YaleReadMe">
-                <p >please click me</p>
-            </div></a></div>
-<!--ANU University Part-->
-            <div class="anu">
-                <a href="../html/programmeList.html">
+$application = "SELECT * FROM Application WHERE applicant ='". $_SESSION['loginuser']."';";
+if($numrows = $conn ->query($application) === TRUE){
+if ($numrows ->num_rows > 0){
+    while($appli = $numrows -> fetch_assoc()){
+        echo "application " . $appli['applicationID'] . " - applicationDate - ".$appli['applicationDate']." - applicantSTATUS - " . $appli['applicationStatus'] . " - applicant - ". $appli['applicant']. " - progID - " . $appli['progID'];
+    }
+}
+    
+}
 
-                <img src="img/ANU/ANU_Campus_Aerial.jpg" alt="AustralianNationalUniversity">
-                <br><br>
-                <h2>Australian National University</h2><br>
-                <div class="Anu-wrapup">
-                     <p>ANU is privileged to have hosted a number of Nobel Laureates whose ground-breaking research has increased our understanding of our world, and improved it for the better.</p>
-                <br></div>
-                <div class="anuReadMore">
-                <p href="../html/programmeList.html">READ MORE >></p>
-            </div>
-            </a></div>
-<!--Australia Monash University Part-->
-            <div class="monash">
-                <a href="../html/programmeList.html">
-                <img src="img/monash-png.png" alt="monash">
-                <br>
-                <h2>One of the top University in Australia</h2>
-                <br>
-                <p>For sixty years our work has changed the world.
-                        But this is only the beginning. Now it's over to you. 
-                        Because we’re not asking you, we’re telling you:</p>
-                        <div class="monashRdM"> 
-                        <p>IF YOU DON’T LIKE IT, CHANGE IT.</p></div></a>
-            </div>
+else{   
+    echo "<div class='content'>";
+// Yale University Part-->
+            echo "<div class='yale'>";
+            echo "<a href='../html/programmeList.html'>";
+            echo"    <img src='img/Yale/Campus=committee.jpg' alt='Yale'>";
+                echo"<br><br>";
+               echo" <h2>Yale</h2>";
+              echo  "<div class='Yalecontent'>";
+                echo"<p>Even before our nation’s founders immortalized their eloquent vision of life, liberty, and the pursuit of happiness, Yale College was instilling similar values in its students. Since our founding in 1701, generations of undergraduates have sought education and enlightenment at Yale in a dedicated pursuit of knowledge and leadership skills.</p></div>";
+                echo"<div class='YaleReadMe'>";
+                echo"<p >please click me</p>";
+            echo "</div></a></div>";
+//ANU University Part-->
+            echo"<div class='anu'>";
+                echo"<a href='../html/programmeList.html'>";
+
+                echo"<img src='img/ANU/ANU_Campus_Aerial.jpg' alt='AustralianNationalUniversity'>";
+                echo"<br><br>";
+                echo"<h2>Australian National University</h2><br>";
+                echo"<div class='Anu-wrapup'>";
+                     echo"<p>ANU is privileged to have hosted a number of Nobel Laureates whose ground-breaking research has increased our understanding of our world, and improved it for the better.</p>";
+                echo"<br></div>";
+                echo"<div class='anuReadMore'>";
+                echo"<p href='../html/programmeList.html'>READ MORE >></p>";
+            echo"</div>";
+            echo"</a></div>";
+// Australia Monash University Part-->
+            echo"<div class='monash'>";
+                echo"<a href='../html/programmeList.html'>";
+                echo"<img src='img/monash-png.png' alt='monash'>";
+                echo"<br>";
+                echo"<h2>One of the top University in Australia</h2>";
+                echo"<br>";
+                echo"<p>For sixty years our work has changed the world.";
+                echo"        But this is only the beginning. Now it's over to you. ";
+                echo"        Because we’re not asking you, we’re telling you:</p> ";
+                echo"        <div class='monashRdM'> ";
+                echo"        <p>IF YOU DON’T LIKE IT, CHANGE IT.</p></div></a>";
+            echo"</div>";
 
 
 
-        <!--Australia Western University Part-->
-            <div class="western">
-                <a href="../html/programmeList.html">
-                <img src="img/Western/UWA4coastWhy.jpg" alt="UniversityofWesternAustralian"><br><br>
-                <h2>University of Western Australian</h2><br>
-                <div class="western-contain">
-                <p style="color:grey">Government School in Western Australian</p><br><br>
-                <p>Over the years the University has acquired an international reputation for excellence and enterprise. It is regarded as one of Australia's top research institutions, attracting researchers of world standing across the range of disciplines, with international leaders in many diverse fields.
-                    In 2018, the University sits at 93 on the Academic Ranking of World Universities produced by Shanghai Jiao Tong University. Having achieved our aim of being in the top 100 by our centenary, we are now striving to be considered a top 50 university by 2050.
-                </p><br></div>
-                <div class="westernRdM">
-                <p href="../html/programmeList.html">READ MORE >></p></div>
+        //Australia Western University Part-->
+            echo"<div class='western'>";
+                echo"<a href='../html/programmeList.html'>";
+                echo"<img src='img/Western/UWA4coastWhy.jpg' alt='UniversityofWesternAustralian'><br><br>";
+                echo"<h2>University of Western Australian</h2><br>";
+                echo"<div class='western-contain'>";
+                echo"<p style='color:grey'>Government School in Western Australian</p><br><br>";
+                echo"<p>Over the years the University has acquired an international reputation for excellence and enterprise. It is regarded as one of Australia's top research institutions, attracting researchers of world standing across the range of disciplines, with international leaders in many diverse fields.";
+                    echo"In 2018, the University sits at 93 on the Academic Ranking of World Universities produced by Shanghai Jiao Tong University. Having achieved our aim of being in the top 100 by our centenary, we are now striving to be considered a top 50 university by 2050.";
+                echo"</p><br></div>";
+                echo"<div class='westernRdM'>";
+                echo"<p href='../html/programmeList.html'>READ MORE >></p></div>";
             </a>
 
             </div>
@@ -153,7 +163,7 @@ $application = SELECT
         
 
     </div>
-
+}?>
     <footer>
         <p>Powered by Abdul Qayoom</p>
     </footer>
