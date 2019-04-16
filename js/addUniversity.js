@@ -55,7 +55,7 @@ if(validUni()){
 		document.getElementById("errorPassword").innerHTML="Please enter a password";
         inPassword.style.borderColor="red";
 		return false;
-	}else if(inPassword.value.length < 8){
+	}else if(inPassword.value.length < 5){
 		document.getElementById("errorPassword").innerHTML="Must have at least 8 characters";
         inPassword.style.borderColor="red";
 		return false;

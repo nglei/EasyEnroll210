@@ -217,6 +217,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </select>
 			<span id="errorQualification" class="error"></span>
 		</div>
+		<span id="viewBtn"><br><input type="button" class="btn btn-primary btn-sm " onclick="viewGradeList()" value="View Grade List"></span>
+		<div id="row">
 		<div id="table">
 						   <br>
                              <table class="table" id="result" name="result">
@@ -277,6 +279,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                              </table>
 							 </div>
+							 <div id="gradeList" class="gradeList">
+							 <br>
+	<?php
+	$getGradeList = "SELECT qualificationName,gradeList from qualification";
+    $gradeList = $conn->query($getGradeList);
+    if($gradeList->num_rows > 0){
+    while($row = $gradeList->fetch_assoc()){
+	echo $row["qualificationName"]."<br>";
+	echo $row["gradeList"]."<br><br>";}
+
+    }
+									/*echo "<script>";
+									echo 'var qualification = document.getElementById("qualification");';
+									echo "var value = qualification[qualification.selectedIndex].value;";
+									echo 'qualification.onchange = function(){';
+									echo 'if(value == "Q01"){';
+									echo ' alert("got");';
+									echo 'var list = document.getElementById("gradeList");';
+									echo 'list.innerHTML = "<p>cde</p>";}';
+									echo 'else{list.innerHTML = "<p>xyz</p>";}} ';
+									echo "</script>";*/
+								?>
+							 </div></div>
 		
 		<div><span id="errorResult" class="error"><?php if($errorResult !=""){echo $errorResult;}?></span></div>
               <div class="text-center" id="addButton">
@@ -335,6 +360,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                    }
 
      </script>
+	 <script>
+	 var gradeList = document.getElementById("gradeList");
+gradeList.style.display = 'none';
+function viewGradeList(){
+	var row = document.getElementById("row");
+	var table = document.getElementById("table");
+	var gradeList = document.getElementById("gradeList");
+	if(gradeList.style.display === "none"){
+		gradeList.style.display = "block";
+		row.setAttribute("class","row");
+
+		table.setAttribute("class","col-8");
+
+		gradeList.setAttribute("class","col-4 gradeList");
+	}else{
+		gradeList.style.display = "none";
+		table.setAttribute("class","col-12");
+	}
+}</script>
 
 	 <?php
 		echo "<script>";
