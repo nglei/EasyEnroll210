@@ -7,8 +7,8 @@ $conn = new mysqli($_SESSION['servername'], $_SESSION['username'],$_SESSION['pas
 if ($conn->connect_error){
   die("Connection failed: " . $conn->connect_error);
 }
-
-
+$useDb = "USE easyenroll";
+$conn->query($useDb);
 ?>
 <html>
 
@@ -67,14 +67,22 @@ if ($conn->connect_error){
     
 <!--welcome message-->
     <div class="header">
-        <h1>Welcome, <?php $_SESSION['loginuser']?></h1>
+        <h1>Welcome, <?php
+					$getName = "select * from user where username ='".$_SESSION['loginUser']."'";
+					$user=$conn->query($getName);
+					
+					if($user->num_rows > 0){
+						while($name = $user->fetch_assoc()){
+							echo $name['name'];
+						}
+					}?></h1>
         <br>
-        <p><?php $_SESSION['loginuser']?><b>applicantID</b></p>
+        <p><b><?php echo $_SESSION['loginUser']?></b></p>
     </div>
 <!--welcome message-->
 <!--content body-->
 <?php
-$application = "SELECT * FROM Application WHERE applicant ='". $_SESSION['loginuser']."';";
+$application = "SELECT * FROM Application WHERE applicant ='". $_SESSION['loginUser']."';";
 if($numrows = $conn ->query($application) === TRUE){
 if ($numrows ->num_rows > 0){
     while($appli = $numrows -> fetch_assoc()){
@@ -138,7 +146,7 @@ else{
                     echo"In 2018, the University sits at 93 on the Academic Ranking of World Universities produced by Shanghai Jiao Tong University. Having achieved our aim of being in the top 100 by our centenary, we are now striving to be considered a top 50 university by 2050.";
                 echo"</p><br></div>";
                 echo"<div class='westernRdM'>";
-                echo"<p href='../html/programmeList.html'>READ MORE >></p></div>";
+echo"<p href='../html/programmeList.html'>READ MORE >></p></div>";}?>
             </a>
 
             </div>
@@ -163,7 +171,7 @@ else{
         
 
     </div>
-}?>
+
     <footer>
         <p>Powered by Abdul Qayoom</p>
     </footer>
