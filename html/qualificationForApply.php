@@ -17,6 +17,12 @@ $errorResult = "";
 $save="";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$qualification = $_POST['qualification'];
+	$checkQual = false;
+	$checkQualObtain = "select * from qualificationobtained where username='".$_SESSION['loginUser']."'";
+	$getQualObtain = $conn->query($checkQualObtain);
+	if($getQualObtain->num_rows == 0){
+		
+	
 	$subjectList = $_POST['subject'];
     $gradeList = $_POST['grade'];
 	
@@ -37,8 +43,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
       }
       }
-	  $save = $qualification;
+	$save = $qualification;}else{$checkQual = true;}
 	if($errorResult ==""){
+		if($checkQual == false){
 	  $getMethod = "SELECT method,numOfSubject from qualification where qualificationID = '".$qualification."'";
       $methodRow = $conn->query($getMethod);
       $overallScore = 0;
@@ -70,7 +77,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $grade = $gradeList[$i];
         $insertResult = "INSERT into result (username,subject,grade) values('".$_SESSION['loginUser']."','$subject','$grade')";
      		$conn->query($insertResult);
-      }
+		}$checkQual==true;}
+	if($checkQual == true){
 	  $overallScore ="";
 	$qualificationobtained = "";
 	$getScore = "select * from qualificationobtained where username = '".$_SESSION['loginUser']."'";
@@ -87,13 +95,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		while($entry = $entryArray->fetch_assoc()){
 			if($qualificationobtained == $entry['qualificationID']){
 			if($overallScore < $entry['entryScore']){
-				$insertApplication = "INSERT into application (applicationDate,applicationStatus,applicant,progID) values (curdate(),'Not Eligible','".$_SESSION['loginUser']."','".$_SESSION['selectedProgramme']."') ";
+				$insertApplication = "INSERT into application (applicationDate,applicationStatus,applicant,progID,qID) values (curdate(),'Not Eligible','".$_SESSION['loginUser']."','".$_SESSION['selectedProgramme']."',$qualification) ";
 				if($conn->query($insertApplication)===FALSE){
           echo "Error inserting Application with NOT ELIGIBLE application" . $conn->error;
         }
 					
 			}else{
-				$insertApplication = "INSERT into application (applicationDate,applicationStatus,applicant,progID) values(curdate(),'New','".$_SESSION['loginUser']."','".$_SESSION['selectedProgramme']."') ";
+				$insertApplication = "INSERT into application (applicationDate,applicationStatus,applicant,progID,qID) values(curdate(),'New','".$_SESSION['loginUser']."','".$_SESSION['selectedProgramme']."',$qualification) ";
 				if($conn->query($insertApplication)===FALSE){
           echo "Error inserting Application With Valid Application" . $conn->error;
         }
@@ -103,10 +111,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		}
 	}
 	echo "<script>alert ('Application successful submitted.');window.location.href='programmeList.php';</script>";  
-	}
+	}}
 	
-}
-?>
+}?>
 <!DOCTYPE html>
 <html>
   <head>
