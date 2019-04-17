@@ -41,6 +41,7 @@ $errorMessage="";
 
     }else{
       $_SESSION['loginUser'] = $loginUsername;
+      $_SESSION['usertype'] = $userType;
 		if($userType == "uniadmin"){
 		  header('Location: uniadminLogin.php');
 		}
@@ -51,7 +52,7 @@ $errorMessage="";
 		  header('location:coursedetail.php?pID='.$_SESSION['selectedProgramme'].'');
 		}
         else{
-			header('Location: index.php');
+			header('Location: ../main/home.php');
 		}
     }
   }

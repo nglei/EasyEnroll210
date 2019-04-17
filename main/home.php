@@ -7,10 +7,13 @@ $conn = new mysqli($_SESSION['servername'], $_SESSION['username'],$_SESSION['pas
 if ($conn->connect_error){
   die("Connection failed: " . $conn->connect_error);
 }
-
+$connecttodatabase = "USE easyenroll;";
+if ($conn->query($connecttodatabase) === FALSE){
+    echo "Connection to database failed" . $conn->error;
+}
 
 ?>
-<html>
+<!DOCTYPE html>
 
 <head>
     <meta charset="UTF-8">
@@ -28,20 +31,16 @@ if ($conn->connect_error){
 <!--self made navigation bar-->
     <div id="Topnav" class="topnav ">
         
-        <a id ="floatright" href="javascript:void(0);" class="hamburger" onclick="popNaviUp()">&#9776;</a>    
-        <a href="../html/qualificationList.html">Maintain Qualification</a>
-        <a href="../html/addProgrammeList.html">Add Programme</a>
-        <a href="../html/addUniversityList.html">Add Universities</a>
-        <a href="../html/reviewApplication.html">Review Applications</a>
+        <a id ="floatright" href="javascript:void(0);" class="hamburger" onclick="popNaviUp()">&#9776;</a>
         <div class="dropdown">
             <button class="dropselection">Applicant See here</button>
             <div class="dropdown-item">
-                <a href="../html/programmeList.html">Programme </a>
-                <a href="../html/programmeList.html">Programme List</a>
+                <a href="../html/programmeList.php">Programme </a>
+                <a href="../html/programmeList.php">Programme List</a>
             </div>
         </div>
         <div class="logout">
-        <a href="index.html" >Log out</a>
+        <a href="index.php" >Log out</a>
     </div>
     </div>
     <script type="text/javascript">
@@ -67,24 +66,24 @@ if ($conn->connect_error){
     
 <!--welcome message-->
     <div class="header">
-        <h1>Welcome, <?php $_SESSION['loginuser']?></h1>
+        <h1>Welcome, <?php echo $_SESSION['loginUser']?></h1>
         <br>
-        <p><?php $_SESSION['loginuser']?><b>applicantID</b></p>
+        <p><?php echo $_SESSION['loginUser']?>, You accessed into this system at<b><script>document.write(new Date().toDateString());document.write(" ");document.write(new Date().toLocaleTimeString());</script></b></p>
     </div>
 <!--welcome message-->
 <!--content body-->
 <?php
-$application = "SELECT * FROM Application WHERE applicant ='". $_SESSION['loginuser']."';";
-if($numrows = $conn ->query($application) === TRUE){
+$application = "SELECT * FROM Application WHERE applicant ='". $_SESSION['loginUser']."';";
+if(($numrows = $conn ->query($application)) === TRUE){
 if ($numrows ->num_rows > 0){
     while($appli = $numrows -> fetch_assoc()){
         echo "application " . $appli['applicationID'] . " - applicationDate - ".$appli['applicationDate']." - applicantSTATUS - " . $appli['applicationStatus'] . " - applicant - ". $appli['applicant']. " - progID - " . $appli['progID'];
     }
 }
     
-}
 
-else{   
+
+}else{   
     echo "<div class='content'>";
 // Yale University Part-->
             echo "<div class='yale'>";
@@ -139,31 +138,33 @@ else{
                 echo"</p><br></div>";
                 echo"<div class='westernRdM'>";
                 echo"<p href='../html/programmeList.html'>READ MORE >></p></div>";
-            </a>
+            echo"</a>";
 
-            </div>
-<!--Tokyo U >Part-->
-            <div class="tokyo">
-                <a href="/EasyEnroll210/html/programmeList.html">
-                <img src="img/University-Tokyo.png" alt="UniversityTokyo">
-                <br><br>
-                <h2>東京大學</h2><br>
-                <p style="color:grey"> University Tokyo</p>
-                <br><div class="tokyo-content">
-                <p>
-                  The University of Tokyo aims to be a world-class platform for research and education, contributing to human knowledge in partnership with other leading global universities. The University of Tokyo aims to nurture global leaders with a strong sense of public responsibility and a pioneering spirit, possessing both deep specialism and broad knowledge. The University of Tokyo aims to expand the boundaries of human knowledge in partnership with society. Details about how the University is carrying out this mission can be found in the University of Tokyo Charter and the Action Plans.                </p>
-                <br>
-                <p>
+            echo"</div>";
+//<!--Tokyo U >Part-->
+            echo"<div class='tokyo'>";
+                echo"<a href='/EasyEnroll210/html/programmeList.html'>";
+                echo"<img src='img/University-Tokyo.png' alt='UniversityTokyo'>";
+                echo"<br><br>";
+                echo"<h2>東京大學</h2><br>";
+                echo"<p style='color:grey'> University Tokyo</p>";
+                echo"<br><div class='tokyo-content'>";
+                echo"<p>";
+                  echo"The University of Tokyo aims to be a world-class platform for research and education, contributing to human knowledge in partnership with other leading global universities. The University of Tokyo aims to nurture global leaders with a strong sense of public responsibility and a pioneering spirit, possessing both deep specialism and broad knowledge. The University of Tokyo aims to expand the boundaries of human knowledge in partnership with society. Details about how the University is carrying out this mission can be found in the University of Tokyo Charter and the Action Plans.                </p>";
+                echo"<br>";
+                echo"<p>
                     独立行政法人等の保有する情報の公開に関する法律(平成13年12月5日法律第140号。以下「情報公開法」という。)に基づき、東京大学(以下「本学」という。)の保有する情報の一層の公開を図り、もって本学の有するその諸活動を国民に説明する責務を全うするため、国民のみなさまに法人文書を開示する制度です。
                     情報公開法では、開示請求があったときは本学の総長は、不開示情報が記録されている場合を除き、法人文書を開示しなければならないこととされています。
-                </p></div>
-</a>
-            </div>
+                </p></div>";
+echo"</a>";
+            echo"</div>";
 
         
 
-    </div>
-}?>
+    echo"</div>";
+}
+
+    ?>
     <footer>
         <p>Powered by Abdul Qayoom</p>
     </footer>

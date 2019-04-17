@@ -88,17 +88,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			if($qualificationobtained == $entry['qualificationID']){
 			if($overallScore < $entry['entryScore']){
 				$insertApplication = "INSERT into application (applicationDate,applicationStatus,applicant,progID) values (curdate(),'Not Eligible','".$_SESSION['loginUser']."','".$_SESSION['selectedProgramme']."') ";
-				$conn->query($insertApplication);
+				if($conn->query($insertApplication)===FALSE){
+          echo "Error inserting Application with NOT ELIGIBLE application" . $conn->error;
+        }
 					
 			}else{
 				$insertApplication = "INSERT into application (applicationDate,applicationStatus,applicant,progID) values(curdate(),'New','".$_SESSION['loginUser']."','".$_SESSION['selectedProgramme']."') ";
-				$conn->query($insertApplication);
+				if($conn->query($insertApplication)===FALSE){
+          echo "Error inserting Application With Valid Application" . $conn->error;
+        }
 			}
 			}
 			
 		}
 	}
-	echo "<script>alert ('Application successful submitted.');window.location.href = 'programmeList.php';</script>";  
+	echo "<script>alert ('Application successful submitted.');window.location.href='programmeList.php';</script>";  
 	}
 	
 }
@@ -295,7 +299,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	function validation(){
 		var selectQual = qualification[qualification.selectedIndex].value;
 		if(validQualification()){
-			return true;
+      //if (validScoreEntered()){
+			return true;//}
 		}
 		return false;
 		function validQualification(){
@@ -318,7 +323,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		qualification.style.borderColor="grey";
 	}
 }
-	
+  //var allScorefield = document.getElementByTagName("grade[]");
+  //to check the Score should nott be alphbet
+  //function validScoreEntered(){
+    if(isNaN(allSc))
+  }
      var count = 4;
      var table = document.getElementById("result");
 

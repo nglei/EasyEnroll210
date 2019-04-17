@@ -15,8 +15,11 @@ $universityName = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if(isset($_SESSION['loginUser'])){
+    if($_SESSION['usertype'] == "uniadmin"){
+      header("location:addProgrammeList.php");
+    }else{
 	echo "<script>window.location.href = 'qualificationForApply.php?pID=".$_SESSION['selectedProgramme']."';</script>";
-	
+	}
 	
 	}else{
 		header("location:signin.php");
@@ -49,13 +52,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">Home</a>
+            <a class="nav-link" href="../main/home.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="programmeList.php">Programme</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">University</a>
+            <a class="nav-link" href="../main/home.php">University</a>
           </li>
 
         </ul>
@@ -141,7 +144,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			 ?>
 				<div>
 					<form method="post" action="coursedetail.php">
-									<input type="submit" name="apply" class="btn btn-primary" value="Apply This Programme">
+            <?php
+            if($_SESSION['usertype'] == "uniadmin"){
+              echo "<input type='submit' name='apply' class='btn btn-primary' value='&#x21B0;&nbsp;Back To List of Programmes Added By UniAdmin'>";
+            }else{
+                  echo"<input type='submit' name='apply' class='btn btn-primary' value='Apply This Programme'>";
+            }
+            ?>
 									</form>
 				</div>
             </div>

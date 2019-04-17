@@ -2,6 +2,7 @@
 body{background-image: url(../img/title/demo-1-bg.jpg);} :root {
   --mouse-x: 0;
   --mouse-y: 0;
+  
 }
 /*to be an linkable block*/
 body .content a{

@@ -30,8 +30,12 @@ idtype varchar(10),
 idno varchar(20),
 mobileNo varchar(14),
 dateOfBirth date,
-foreign key (username) references user(username))";
+foreign key (username) references user(username));";
 $conn->query($createApplicantTb);
+
+$sqlcreateTbl = "CREATE TABLE IF NOT EXISTS University (
+  UniID VARCHAR(5) PRIMARY KEY DEFAULT '0' NOT NULL, UniName VARCHAR(55), adminUsername VARCHAR(50), foreign KEY (adminUsername) references user(username));";
+$conn->query($sqlcreateTbl);
 
 $createQualificationTb ="CREATE TABLE qualification(
 qualificationID int auto_increment not null primary key,
@@ -76,7 +80,9 @@ progDescription varchar(2000),
 closingDate date,
 imgURL varchar(200),
 foreign key (UniID) references university(UniID))";
-$conn->query($programmeTb);
+if ($conn->query($programmeTb) === FALSE){
+  echo "Error creating PROGRAMME table" . $conn->error;
+}
 
 $setProgID = "alter table programme AUTO_INCREMENt = 40001";
 $conn->query($setProgID);
@@ -97,7 +103,9 @@ applicant varchar(50),
 progID int,
 foreign key (applicant) references applicant(username),
 foreign key (progID) references programme(programmeID));";
-$conn->query($applicationTb);
+if($conn->query($applicationTb)===FALSE){
+  echo "CREate Application Table failed" . $conn->error;
+}
 
 $setapplicationID = "alter table application AUTO_INCREMENt = 60001";
 $conn->query($setapplicationID);
@@ -123,7 +131,8 @@ $conn->query($setapplicationID);
     <link rel="stylesheet" type="text/css" href="css/circleMenu.css">
     <link rel="stylesheet" type="text/css" href="css/3.css">
     <link rel="stylesheet" type="text/css" href="css/aos.css">
-    <link rel = "stylesheet" type="text/css" href="indexnavbar.css">
+    <link rel="stylesheet" type="text/css" href="indexnavbar.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="js/main.js"></script>
     <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/circularmenuII.js"></script>
@@ -145,10 +154,10 @@ $conn->query($setapplicationID);
       <div class="circle" id="gal">
         <div class="ring">
           <a href="#" class="menuItem" title="Home">Home</a>
-          <a href="../html/signin.html" class="menuItem" >Login</a>
-          <a href="../html/signin.html" class="menuItem" >Login</a>
-          <a href="../html/signup.html" class="menuItem">Sign Up</a>
-          <a href="../html/signup.html" class="menuItem">Sign Up</a>
+          <a href="../html/signin.php" class="menuItem" >Login</a>
+          <a href="../html/signin.php" class="menuItem" >Login</a>
+          <a href="../html/signup.php" class="menuItem">Sign Up</a>
+          <a href="../html/signup.php" class="menuItem">Sign Up</a>
         </div>
       </div>
     </div>
@@ -165,11 +174,12 @@ $conn->query($setapplicationID);
     <script src="js/aos.js"></script><!--flip up animation detecting scrollindex-->
     <!--Slide Slider menu-->
     <!--self made navigation bar-->
+    <div class="sticky-container">
     <div id="Topnav" class="topnav">
         
       <a id ="floatright" href="javascript:void(0);" class="hamburger" onclick="popNaviUp()">&#9776;</a>    
-      <a href="../html/signin.html">Log In</a>
-      <a href="../html/signup.html">Sign Up</a>
+      <a href="../html/signin.php">Log In</a>
+      <a href="../html/signup.php">Sign Up</a>
       
   </div>
   <script type="text/javascript">
@@ -204,7 +214,7 @@ $conn->query($setapplicationID);
         <a href="../html/signup.html">applicant</a>
       </div>
       <--Slide Slider menu
-      <!-- first place to click on to navigate to other page-->
+      < -- first place to click on to navigate to other page-->
       <!--flashing menu icon
       <div class="blackmenu">
         <img src="img/menu_circular_icon_png.png" alt="menu-icon" height="100vh" width="100vw"onclick="sidemenuout()">
@@ -214,8 +224,44 @@ $conn->query($setapplicationID);
       </div>-->
       <!--flashing menu icon-->
       <!-- Content body-->
+      <!-- ##### Hero Area Start ##### -->
+     <section class="hero-area">
+         <div class="hero-slides owl-carousel">
+
+             <!-- Single Hero Slide -->
+             <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg-1_1replace.jpg);">
+                 <div class="container h-100">
+                     <div class="row h-100 align-items-center">
+                         <div class="col-12">
+                             <div class="hero-slides-content">
+                                 <h4 data-animation="fadeInUp" data-delay="100ms">Your success, we assured</h4>
+                                 <h2 data-animation="fadeInUp" data-delay="400ms">Welcome to Student Application System<br>EasyEnroll</h2>
+                                 <a href="#" class="btn academy-btn" data-animation="fadeInUp" data-delay="700ms">E.E.S</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+             <!-- Single Hero Slide -->
+             <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg_2-1.jpg);">
+                 <div class="container h-100">
+                     <div class="row h-100 align-items-center">
+                         <div class="col-12">
+                             <div class="hero-slides-content">
+                                 <h4 data-animation="fadeInUp" data-delay="100ms">Excellent achievements Successful future</h4>
+                                 <h2 data-animation="fadeInUp" data-delay="400ms">Welcome to our <br>Easy Enroll</h2>
+                                 <a href="#" class="btn academy-btn" data-animation="fadeInUp" data-delay="700ms">Read More</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!-- ##### Hero Area End ##### -->
       <div id="main">
-        <div class="content">
+        <div class="content"  >
           <script type="text/javascript">
           /**block "flip up" duration**/
           AOS.init({
@@ -299,6 +345,18 @@ $conn->query($setapplicationID);
       <script src="js/index.js"></script>-->
     
    </div>
+          </div>
+   <!-- ##### All Javascript Script ##### -->
+     <!-- jQuery-2.2.4 js -->
+     <script src="js/jquery/jquery-2.2.4.min.js"></script>
+     <!-- Popper js -->
+     <script src="js/bootstrap/popper.min.js"></script>
+     <!-- Bootstrap js -->
+     <script src="js/bootstrap/bootstrap.min.js"></script>
+     <!-- All Plugins js -->
+     <script src="js/plugins/plugins.js"></script>
+     <!-- Active js -->
+     <script src="js/active.js"></script>
   </body>
   
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
