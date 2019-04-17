@@ -77,7 +77,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $grade = $gradeList[$i];
         $insertResult = "INSERT into result (username,subject,grade,qID) values('".$_SESSION['loginUser']."','$subject','$grade','$qualification')";
      		$conn->query($insertResult);
-		}$checkQual==true;}
+		}
+		$checkQual=true;}
 	if($checkQual == true){
 	  $overallScore ="";
 	$qualificationobtained = "";
@@ -358,8 +359,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   //var allScorefield = document.getElementByTagName("grade[]");
   //to check the Score should nott be alphbet
   //function validScoreEntered(){
-    if(isNaN(allSc))
-  }
+
      var count = 4;
      var table = document.getElementById("result");
 

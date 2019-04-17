@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if($_SESSION['usertype'] == "uniadmin"){
       header("location:addProgrammeList.php");
     }else{
-	echo "<script>window.location.href = 'qualificationForApply.php?pID=".$_GET['pID']."';</script>";
+	echo "<script>window.location.href = 'qualificationForApply.php?pID=".$_SESSION['selectedProgramme']."';</script>";
 	}
 	
 	}else{
@@ -163,9 +163,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			if(isset($_SESSION['usertype'])){
 				if($_SESSION['usertype'] == "uniadmin"){
               echo "<input type='submit' name='apply' class='btn btn-primary' value='&#x21B0;&nbsp;Back To List of Programmes Added By UniAdmin'>";
+            }else{
+            echo"<input type='submit' name='apply' class='btn btn-primary' value='Apply This Programme'>";
             }}else{
-                  echo"<input type='submit' name='apply' class='btn btn-primary' value='Apply This Programme'>";
-            }
+            echo"<input type='submit' name='apply' class='btn btn-primary' value='Apply This Programme'>";}
             ?>
 									</form>
 				</div>
