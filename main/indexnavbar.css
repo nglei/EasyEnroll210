@@ -1,5 +1,6 @@
 /**arrange style all components of navigation bar when initiate**/
 .topnav{
+    position:sticky;
     background-color: rgb(37,33,21);
     overflow: hidden;
 }
