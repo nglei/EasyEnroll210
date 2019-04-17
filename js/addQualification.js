@@ -119,7 +119,7 @@ function validation(){
 qualificationName.onkeyup = function(){
 	if(qualificationName.value != ""){
 		document.getElementById("errorQualification").innerHTML="";
-        qualificationName.style.borderColor="white";
+        qualificationName.style.borderColor="grey";
 	}
 	else if(qualificationName.value == ""){
 		document.getElementById("errorQualification").innerHTML="Please enter a Qualification Name";
@@ -133,7 +133,7 @@ minScore.onkeyup = function(){
 		minScore.style.borderColor="red";}
 	else if(minScore.value != ""){
 		document.getElementById("errorMinScore").innerHTML="";
-        minScore.style.borderColor="white";
+        minScore.style.borderColor="grey";
 	}
 	else if(minScore.value == ""){
 		document.getElementById("errorMinScore").innerHTML="Please enter minimum score";
@@ -152,7 +152,7 @@ maxScore.onkeyup = function(){
 		maxScore.style.borderColor="red";}
 	else if(maxScore.value != ""){
 		document.getElementById("errorMaxScore").innerHTML="";
-        maxScore.style.borderColor="white";
+        maxScore.style.borderColor="grey";
 	}
 
 
@@ -161,7 +161,7 @@ maxScore.onkeyup = function(){
 subNum.onkeyup = function(){
 	if(subNum.value != ""){
 		document.getElementById("errorSubNum").innerHTML="";
-        subNum.style.borderColor="white";
+        subNum.style.borderColor="grey";
 	}
 	if(isNaN(subNum.value)){
 		document.getElementById("errorSubNum").innerHTML="Please enter numeric data for number of subject";
@@ -175,7 +175,7 @@ subNum.onkeyup = function(){
 gradeList.onkeyup = function(){
 	if(gradeList.value != ""){
 		document.getElementById("errorGradeList").innerHTML="";
-        gradeList.style.borderColor="white";
+        gradeList.style.borderColor="grey";
 	}
 	else if(gradeList.value == ""){
 		document.getElementById("errorGradeList").innerHTML="Please a grade list";
@@ -187,6 +187,6 @@ calcMethod.onchange = function(){
 	var selectMethod = calcMethod[calcMethod.selectedIndex].value;
 	if(selectMethod.value!=""){
 		document.getElementById("errorMethod").innerHTML="";
-		calcMethod.style.borderColor="white";
+		calcMethod.style.borderColor="grey";
 	}
 }

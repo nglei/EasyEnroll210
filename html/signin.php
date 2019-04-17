@@ -52,7 +52,7 @@ $errorMessage="";
 		  header('location:coursedetail.php?pID='.$_SESSION['selectedProgramme'].'');
 		}
         else{
-			header('Location: ../main/home.php');
+			header('Location:../main/home.php');
 		}
     }
   }

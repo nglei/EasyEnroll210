@@ -1,3 +1,7 @@
+.gradeList{
+		border-radius:16px;
+		border: 2px solid grey;
+		}
 .info-list {
   font-weight: 600;
   font-size: 15px;
