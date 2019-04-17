@@ -54,7 +54,7 @@ $qualificationObtainedTb = "CREATE table qualificationObtained(
 qobtainedID int auto_increment primary key not null,
 username varchar(50),
 qualificationID int,
-overallScore int(10),
+overallScore decimal(3,2),
 foreign key (username) references user(username),
 foreign key (qualificationID) references qualification(qualificationID))";
 $conn->query($qualificationObtainedTb);
