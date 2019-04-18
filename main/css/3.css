@@ -144,7 +144,7 @@ div.Yale div.Yalecontainer{
 }
 div.Yale div.Yalecontainer img{
   height:47vh;
-  width:48vh;
+  /*width:48vh;*/
   padding:0 12vh;
 }
 /*ANU*/
@@ -190,7 +190,7 @@ width:71vh;
 }
 .west-container img{
   height:55vh;
-  width:69vh;
+  width:66vh;
   border:inset 5px rgb(255,255,255);
 }
 .west-container p{

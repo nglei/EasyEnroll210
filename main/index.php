@@ -260,6 +260,77 @@ $conn->query($setapplicationID);
          </div>
      </section>
      <!-- ##### Hero Area End ##### -->
+
+     <!-- ##### Testimonials Area Start ##### -->
+    <div class="testimonials-area section-padding-100 bg-img bg-overlay" style="background-image: url(img/bg-img/bg-2.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center mx-auto white wow fadeInUp" data-wow-delay="300ms">
+                        <span>What do we have</span>
+                        <h3>See the reasons why we are the best</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Single Testimonials Area -->
+                <div class="col-12 col-md-6">
+                    <div class="single-testimonial-area mb-100 d-flex wow fadeInUp" data-wow-delay="400ms">
+
+                        <div class="testimonial-content">
+                            <h5>Manage more applications with less work done</h5>
+                            <h6>Organised and smooth workflow</h6>
+                            <p>Manage much more applications as possible with our befitting capacity of storage provided in system. A simplified interface and functionalities smoothen management on applications workflow. Complicated and multiple steps are taken out . </p>
+                            <!--<p>From the features standpoint, the system is easy to use even a non-tech savvy like me can easily search the course I want. Whenever I found a course that is so interesting to stop me by, I can immediately know </p>
+                            <h6><span>Maria Smith,</span> Student</h6>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Testimonials Area -->
+                <div class="col-12 col-md-6">
+                    <div class="single-testimonial-area mb-100 d-flex wow fadeInUp" data-wow-delay="500ms">
+                        <div class="testimonial-content">
+                            <h5>Handle your applicants has never been so easy</h5>
+                            <p>Applicants' list are filtered, categorised and managed well accordingly to respective qualifications, results and grades. propose the best choice for the applicant that meets both the demands from the applicant and the requirements from the offerors</p>
+                            </div>
+                    </div>
+                </div>
+                <!-- Single Testimonials Area -->
+                <div class="col-12 col-md-6">
+                    <div class="single-testimonial-area mb-100 d-flex wow fadeInUp" data-wow-delay="600ms">
+                        <div class="testimonial-content">
+                            <h5>Variety of courses available from universities all across country</h5>
+                            <p>We have multiple kinds of courses from every prospects of subjects and career aspects. Science, Business, Design, Accounting, Cutlery, Engineering... Also, we have provided similar courses from different universities to be compared and considered from without the needs of regular visting on two different universities sites to compare with in this single uniform platform</p>
+                            <!--p>Large storage of database enables to store all sorts kinds of files which can provide more detailed information about applicants.Select your best-fit applicants with built-in scoring and evaluation tools, including automated video interviews, and scoresheets that you can easily share with your professors and department.</p-->
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Testimonials Area -->
+                <div class="col-12 col-md-6">
+                    <div class="single-testimonial-area mb-100 d-flex wow fadeInUp" data-wow-delay="700ms">
+                        <!--div class="testimonial-thumb">
+                            <img src="img/bg-img/t4.jpg" alt="">
+                        </div-->
+                        <div class="testimonial-content">
+                            <h5>Analyse the data and information submitted with clear and organised way</h5>
+                            <p>All course are categorised and rated generally by thousands of reviewers. Maintain a constant overview of your admission process with clear reporting, export wizards and a full-featured dashboard. EasyEnroll has a quick and intuitive setup flow to fit your exact needs. </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="800ms">
+                        <a href="#" class="btn academy-btn">See More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Testimonials Area End ##### -->
+
       <div id="main">
         <div class="content"  >
           <script type="text/javascript">
@@ -289,10 +360,10 @@ $conn->query($setapplicationID);
             <div class="Anu-container">
             <img src="img/ANU/croppedANULogo.png" alt="Australian National University" >
             <br>
-            
+            <br>
             <h2> Australian National University</h2>
             <br>
-            
+            <br>
             <p>Our Acton campus is in the heart of Canberra - Australia's capital city - in the Australian Capital Territory (ACT).
                 
                 Amongst our modern lecture halls, libraries, laboratories, student residences and administration buildings, you'll find all the conveniences of a small suburb including cafes, bars, supermarkets, child care centres, a newsagency, post office and even a medical centre.
