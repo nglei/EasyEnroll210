@@ -54,7 +54,7 @@ $qualificationObtainedTb = "CREATE table qualificationObtained(
 qobtainedID int auto_increment primary key not null,
 username varchar(50),
 qualificationID int,
-overallScore int(10),
+overallScore decimal(3,2),
 foreign key (username) references user(username),
 foreign key (qualificationID) references qualification(qualificationID))";
 $conn->query($qualificationObtainedTb);
@@ -67,12 +67,14 @@ resultID int not null auto_increment primary key,
 username varchar(50),
 subject varchar(30),
 grade varchar(5),
+qID int,
+foreign key (qID) references qualification(qualificationID),
 foreign key (username) references user(username))";
 $conn->query($resultTb);
 
 $programmeTb = "create table programme(
 programmeID int auto_increment primary key not null,
-UniID VARCHAR(12),
+UniID VARCHAR(5),
 programmeName varchar(1000),
 duration varchar(50),
 totalFee int(10),
@@ -101,6 +103,8 @@ applicationDate date,
 applicationStatus varchar(20),
 applicant varchar(50),
 progID int,
+qID int,
+foreign key (qID) references qualification(qualificationID),
 foreign key (applicant) references applicant(username),
 foreign key (progID) references programme(programmeID));";
 if($conn->query($applicationTb)===FALSE){

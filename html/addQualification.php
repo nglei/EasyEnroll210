@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="../main/home.html">EasyEnroll</a>
+      <a class="navbar-brand" href="sasadminLogin.php">EasyEnroll</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -105,9 +105,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                        <h1 class="page-title">Add Qualification</h1>
                        <ul>
                            <li>
-                               <a class="active" href="../main/home.html">Home</a>
+                               <a class="active" href="../main/home.php">Home</a>
                            </li>
-                           <li><a href="qualificationList.html">Qualification</a></li>
+                           <li><a href="qualificationList.php">Qualification</a></li>
                            <li>Add Qualification</li>
                        </ul>
                    </div>

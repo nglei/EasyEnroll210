@@ -56,7 +56,7 @@ if(validUni()){
         inPassword.style.borderColor="red";
 		return false;
 	}else if(inPassword.value.length < 5){
-		document.getElementById("errorPassword").innerHTML="Must have at least 8 characters";
+		document.getElementById("errorPassword").innerHTML="Must have at least 5 characters";
         inPassword.style.borderColor="red";
 		return false;
 	}
@@ -87,7 +87,7 @@ if(validUni()){
 
 username.onkeyup = function(){
 	if(username.value.length >= 5){
-		username.style.borderColor="white";
+		username.style.borderColor="grey";
 		document.getElementById("errorUsername").innerHTML="";
 
 	}
@@ -102,15 +102,15 @@ username.onkeyup = function(){
 }
 
 inPassword.onkeyup = function(){
-	if(inPassword.value.length >=8){
+	if(inPassword.value.length >=5){
 		document.getElementById("errorPassword").innerHTML="";
-        inPassword.style.borderColor="white";
+        inPassword.style.borderColor="grey";
 	}
 	else if(inPassword.value == ""){
 		document.getElementById("errorPassword").innerHTML="Please enter a password";
         inPassword.style.borderColor="red";
-	}else if(inPassword.value.length < 8){
-		document.getElementById("errorPassword").innerHTML="Must have at least 8 characters";
+	}else if(inPassword.value.length < 5){
+		document.getElementById("errorPassword").innerHTML="Must have at least 5 characters";
         inPassword.style.borderColor="red";
 	}
 }
@@ -118,7 +118,7 @@ inPassword.onkeyup = function(){
 fullName.onkeyup = function(){
 	if(fullName.value != ""){
 		document.getElementById("errorName").innerHTML="";
-		fullName.style.borderColor="white";
+		fullName.style.borderColor="grey";
 	}
 	else if(fullName.value == ""){
 		document.getElementById("errorName").innerHTML="Please enter your name";
@@ -129,7 +129,7 @@ fullName.onkeyup = function(){
 email.onkeyup = function(){
 	if(email.value != ""){
 		document.getElementById("errorEmail").innerHTML="";
-        email.style.borderColor="white";
+        email.style.borderColor="grey";
 	}
 	else if(email.value == ""){
 		document.getElementById("errorEmail").innerHTML="Please enter your email";
@@ -140,6 +140,6 @@ email.onkeyup = function(){
 university.onkeyup = function(){
   if(university.value != ""){
     document.getElementById("errorUni").innerHTML="";
-    university.style.borderColor="white";
+    university.style.borderColor="grey";
   }
 }

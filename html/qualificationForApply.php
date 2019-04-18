@@ -17,6 +17,12 @@ $errorResult = "";
 $save="";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$qualification = $_POST['qualification'];
+	$checkQual = false;
+	$checkQualObtain = "select * from qualificationobtained where username='".$_SESSION['loginUser']."' and qualificationID = $qualification";
+	$getQualObtain = $conn->query($checkQualObtain);
+	if($getQualObtain->num_rows == 0){
+		
+	
 	$subjectList = $_POST['subject'];
     $gradeList = $_POST['grade'];
 	
@@ -37,8 +43,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
       }
       }
-	  $save = $qualification;
+	$save = $qualification;}else{$checkQual = true;}
 	if($errorResult ==""){
+		if($checkQual == false){
 	  $getMethod = "SELECT method,numOfSubject from qualification where qualificationID = '".$qualification."'";
       $methodRow = $conn->query($getMethod);
       $overallScore = 0;
@@ -68,9 +75,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       for($i = 0;$i < sizeof($subjectList) ;$i++){
         $subject = $subjectList[$i];
         $grade = $gradeList[$i];
-        $insertResult = "INSERT into result (username,subject,grade) values('".$_SESSION['loginUser']."','$subject','$grade')";
+        $insertResult = "INSERT into result (username,subject,grade,qID) values('".$_SESSION['loginUser']."','$subject','$grade','$qualification')";
      		$conn->query($insertResult);
-      }
+		}
+		$checkQual=true;}
+	if($checkQual == true){
 	  $overallScore ="";
 	$qualificationobtained = "";
 	$getScore = "select * from qualificationobtained where username = '".$_SESSION['loginUser']."'";
@@ -87,13 +96,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		while($entry = $entryArray->fetch_assoc()){
 			if($qualificationobtained == $entry['qualificationID']){
 			if($overallScore < $entry['entryScore']){
-				$insertApplication = "INSERT into application (applicationDate,applicationStatus,applicant,progID) values (curdate(),'Not Eligible','".$_SESSION['loginUser']."','".$_SESSION['selectedProgramme']."') ";
+				$insertApplication = "INSERT into application (applicationDate,applicationStatus,applicant,progID,qID) values (curdate(),'Not Eligible','".$_SESSION['loginUser']."','".$_SESSION['selectedProgramme']."','$qualification') ";
 				if($conn->query($insertApplication)===FALSE){
           echo "Error inserting Application with NOT ELIGIBLE application" . $conn->error;
         }
 					
 			}else{
-				$insertApplication = "INSERT into application (applicationDate,applicationStatus,applicant,progID) values(curdate(),'New','".$_SESSION['loginUser']."','".$_SESSION['selectedProgramme']."') ";
+				$insertApplication = "INSERT into application (applicationDate,applicationStatus,applicant,progID,qID) values(curdate(),'New','".$_SESSION['loginUser']."','".$_SESSION['selectedProgramme']."','$qualification') ";
 				if($conn->query($insertApplication)===FALSE){
           echo "Error inserting Application With Valid Application" . $conn->error;
         }
@@ -103,10 +112,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		}
 	}
 	echo "<script>alert ('Application successful submitted.');window.location.href='programmeList.php';</script>";  
-	}
+	}}
 	
-}
-?>
+}?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -124,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="../main/home.html">EasyEnroll</a>
+      <a class="navbar-brand" href="../main/home.php">EasyEnroll</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -132,13 +140,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">Home</a>
+            <a class="nav-link" href="../main/home.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="programmeList.php">Programme</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.html">University</a>
+            <a class="nav-link" href="#">University</a>
           </li>
 
         </ul>
@@ -178,7 +186,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                        <h1 class="page-title">Programme</h1>
                        <ul>
                            <li>
-                               <a class="active" href="../main/home.html">Home</a>
+                               <a class="active" href="../main/home.php">Home</a>
                            </li>
                            <li>
                                <a class="active" href="programmeList.php">Programme</a>
@@ -210,7 +218,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             <option value="" disabled selected>Qualification</option>
             <?php
-                $getQualification = "SELECT qualificationID,qualificationName from qualification";
+                $getQualification = "SELECT entryreq.qualificationID,qualificationName from qualification,entryreq where qualification.qualificationID=entryreq.qualificationID and programmeID = '".$_SESSION['selectedProgramme']."'";
                 $qualification = $conn->query($getQualification);
                 if($qualification->num_rows > 0){
                     while($row = $qualification->fetch_assoc()){
@@ -351,8 +359,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   //var allScorefield = document.getElementByTagName("grade[]");
   //to check the Score should nott be alphbet
   //function validScoreEntered(){
-    if(isNaN(allSc))
-  }
+
      var count = 4;
      var table = document.getElementById("result");
 

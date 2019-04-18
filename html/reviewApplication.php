@@ -134,7 +134,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 							}
 						}
 						echo '<div class="col-12"></br><b>Applicant\'s Name:</b>  '.$row['name'].'</div>';
-						$getQualification = "select * from qualificationobtained,qualification where qualification.qualificationID=qualificationobtained.qualificationID and username='".$row['applicant']."'";
+					$getQualification = "select * from qualificationobtained,qualification where qualification.qualificationID=qualificationobtained.qualificationID and username='".$row['applicant']."' and qualificationobtained.qualificationID = '".$row['qID']."'";
 						$getResult = $conn->query($getQualification);
 						if($getResult->num_rows > 0){
 							while($qualification = $getResult->fetch_assoc()){

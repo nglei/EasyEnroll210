@@ -9,6 +9,7 @@ if ($conn->connect_error){
 }
 $useDb = "USE easyenroll";
 $conn->query($useDb);
+
 if(isset($_GET['pID'])){
 $_SESSION['selectedProgramme'] = $_GET['pID'];}	
 $universityName = "";
@@ -44,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="../main/home.html">EasyEnroll</a>
+      <a class="navbar-brand" href="../main/home.php">EasyEnroll</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -98,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                        <h1 class="page-title">Programme Details</h1>
                        <ul>
                            <li>
-                               <a class="active" href="../main/home.html">Home</a>
+                               <a class="active" href="../main/home.php">Home</a>
                            </li>
                            <li>
                                <a class="active" href="programmeList.php">Programme</a>
@@ -113,7 +114,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <div class="container">
             <?php
-			$getProgramme = "SELECT * from programme where programmeID =".$_SESSION['selectedProgramme'];
+			$getProgramme = "SELECT * from programme where programmeID =".$_GET['pID'];
 			$result = $conn->query($getProgramme);
 			if($result->num_rows > 0){
 				while($row = $result->fetch_assoc()){
@@ -141,15 +142,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					echo '<p>'.$row['progDescription'].'</p>';
 				}
 			}
+			echo "<div>";
+			echo "<b>Entry Requirement</b>";
+			echo '<table class="table table-bordered">';
+			echo '<thead><tr><th>Qualification</th><th>OverallScore</th></tr></thead>';
+			$getEntry = "SELECT entryreq.qualificationID,qualificationName,entryScore from qualification,entryreq where qualification.qualificationID=entryreq.qualificationID and programmeID = '".$_GET['pID']."'";
+			$entry = $conn->query($getEntry);
+			if($entry->num_rows > 0){
+				while($req=$entry->fetch_assoc()){
+					echo '<tr><td>'.$req['qualificationName'].'</td>';
+					echo '<td>'.$req['entryScore'].'</td></tr>';
+				}
+			}
+			echo "</table>";
+			echo "</div>";
 			 ?>
 				<div>
 					<form method="post" action="coursedetail.php">
             <?php
-            if($_SESSION['usertype'] == "uniadmin"){
+			if(isset($_SESSION['usertype'])){
+				if($_SESSION['usertype'] == "uniadmin"){
               echo "<input type='submit' name='apply' class='btn btn-primary' value='&#x21B0;&nbsp;Back To List of Programmes Added By UniAdmin'>";
             }else{
-                  echo"<input type='submit' name='apply' class='btn btn-primary' value='Apply This Programme'>";
-            }
+            echo"<input type='submit' name='apply' class='btn btn-primary' value='Apply This Programme'>";
+            }}else{
+            echo"<input type='submit' name='apply' class='btn btn-primary' value='Apply This Programme'>";}
             ?>
 									</form>
 				</div>
