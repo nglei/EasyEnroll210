@@ -1,3 +1,4 @@
+<!--designed by Lim Kian Wei B1700814 and Ng Lei B1700327-->
 <?php
 session_start();
 $_SESSION['servername'] = "localhost";
@@ -53,7 +54,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../main/home.php">Home</a>
+            <?php if($_SESSION['usertype'] == "uniadmin"){
+            echo "<a class='nav-link' href='uniadminLogin.php'>Home</a>";
+          }else{
+            echo "<a class = 'nav-link' href='../main/home.php'>Home</a>";
+          }?>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="programmeList.php">Programme</a>

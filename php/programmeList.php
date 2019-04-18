@@ -42,9 +42,6 @@ $conn->query($useDb);
           <li class="nav-item">
             <a class="nav-link" href="programmeList.php">Programme</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">University</a>
-          </li>
 
         </ul>
         <?php

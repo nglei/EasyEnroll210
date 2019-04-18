@@ -1,3 +1,4 @@
+<!--designed by Lim Kian Wei B1700814-->
 <?php
 session_start();
 $_SESSION['servername'] = "localhost";
@@ -228,7 +229,7 @@ $conn->query($setapplicationID);
       </div>-->
       <!--flashing menu icon-->
       <!-- Content body-->
-      <!-- ##### Hero Area Start ##### -->
+      <!-- Image Carousel -->
      <section class="hero-area">
          <div class="hero-slides owl-carousel">
 
@@ -240,7 +241,7 @@ $conn->query($setapplicationID);
                              <div class="hero-slides-content">
                                  <h4 data-animation="fadeInUp" data-delay="100ms">Your success, we assured</h4>
                                  <h2 data-animation="fadeInUp" data-delay="400ms">Welcome to Student Application System<br>EasyEnroll</h2>
-                                 <a href="#" class="btn academy-btn" data-animation="fadeInUp" data-delay="700ms">E.E.S</a>
+                                 <a href="#" class="btn academy-btn" data-animation="fadeInUp" data-delay="700ms">Read More</a>
                              </div>
                          </div>
                      </div>
@@ -263,9 +264,9 @@ $conn->query($setapplicationID);
              </div>
          </div>
      </section>
-     <!-- ##### Hero Area End ##### -->
+     <!--Image Carousel -->
 
-     <!-- ##### Testimonials Area Start ##### -->
+     <!-- Real Legit Top Features of EasyEnroll-->
     <div class="testimonials-area section-padding-100 bg-img bg-overlay" style="background-image: url(img/bg-img/bg-2.jpg);">
         <div class="container">
             <div class="row">
@@ -333,7 +334,7 @@ $conn->query($setapplicationID);
             </div>
         </div>
     </div>
-    <!-- ##### Testimonials Area End ##### -->
+    <!--Real Legit Top Features of EasyEnroll-->
 
       <div id="main">
         <div class="content"  >

@@ -1,3 +1,4 @@
+/** designed by Limm Kian Wei B1700814**/
 body {
     background-color: rgb(204, 204, 204)
 }
@@ -113,6 +114,11 @@ box-shadow: 0 0 7px 5px rgb(157,155,156);
 .anu img{
     width:70vh;height : 54vh;
 }
+.Anu-wrapup{
+    height:8vh;
+    width:70vh;
+    overflow:hidden;
+}
 .anu h2,
 .anu p {
     margin: 0px 15px;
@@ -124,7 +130,7 @@ box-shadow: 0 0 7px 5px rgb(157,155,156);
     margin-top: 15px;
     margin-left: 15px;
     color: black;
-    width: 19vh;
+    width: 21vh;
 }
 
 .anu .anuReadMore:hover {
@@ -270,8 +276,11 @@ box-shadow: 0 0 7px 5px rgb(157,155,156);
     .anu{
         height:77vh;
     }
+    .anu img{
+        height:35vh;
+    }
     .anu .Anu-wrapup{
-        height:4vh;
+        height:6vh;
         width:68vh;
         overflow:hidden;
     }
@@ -295,7 +304,7 @@ box-shadow: 0 0 7px 5px rgb(157,155,156);
     .yale .YaleReadMe p:hover{
         font-size:14px;
     }
-    .anu .AnuReadMore{
+    .anu .anuReadMore{
         margin-top:3px;
         margin-left:3px;
         padding:2px 3px;
@@ -305,7 +314,7 @@ box-shadow: 0 0 7px 5px rgb(157,155,156);
         height: 71vh;
     }
 }
-@media only screen and (max-width:400px) {
+@media only screen and (max-width:558px) {
     .content {
         display: flex;
         flex-direction: column;
@@ -317,7 +326,7 @@ box-shadow: 0 0 7px 5px rgb(157,155,156);
         width:41vh;
         height:47vh;
     }
-    .anu, .monash{
+    .monash{
         width:41vh;
         height:53vh;
     }
@@ -330,6 +339,10 @@ box-shadow: 0 0 7px 5px rgb(157,155,156);
     .tokyo img,.monash img,.yale img {
         width: 41vh;
         height: 21vh;
+    }
+    .anu{
+        height:57vh;
+        width:41vh;
     }
     .anu img{
         width:41vh;
@@ -369,7 +382,82 @@ box-shadow: 0 0 7px 5px rgb(157,155,156);
     .yale .YaleReadMe p:hover{
         font-size:14px;
     }
-    .anu .AnuReadMore{
+    .anu .anuReadMore{
+        margin-top:3px;
+        margin-left:3px;
+        padding:2px 3px;
+        width:34vh;
+    }
+}
+@media only screen and (max-width:400px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 40px;
+    }
+    .yale{
+        width:41vh;
+        height:47vh;
+    }
+    .monash{
+        width:41vh;
+        height:53vh;
+    }
+    .western ,.tokyo{
+        width: 41vh;
+        height: 71vh;
+        margin: 80px 35px 40px 35px;
+        padding: 0px;
+    }
+    .tokyo img,.monash img,.yale img {
+        width: 41vh;
+        height: 21vh;
+    }
+    .anu{
+        height:57vh;
+        width:41vh;
+    }
+    .anu img{
+        width:41vh;
+        height:29vh;
+    }
+    .western img {
+        width: 41vh;
+        height: 37vh;
+    }
+    .anu .Anu-wrapup{
+        height:4vh;
+        width:41vh;
+        overflow:hidden;
+    }
+    .western .westernRdM{
+        margin-top:3px;
+        margin-left:3px;
+        padding:2px 3px;
+        width:34vh;
+    }
+    .western .western-contain{
+        height:4vh;
+        width:41vh;
+        overflow:hidden;
+    }
+    .monash .monashRdM{
+        margin-top:3px;
+        margin-left:3px;
+        padding:2px 3px;
+    }
+    .tokyo .tokyo-content{
+        height:34vh;
+        width: 41vh;
+        overflow:hidden;
+    }
+    
+    .yale .YaleReadMe p:hover{
+        font-size:14px;
+    }
+    .anu .anuReadMore{
         margin-top:3px;
         margin-left:3px;
         padding:2px 3px;
